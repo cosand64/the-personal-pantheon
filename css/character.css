@@ -1,7 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-}
+@import "global.css";
 
 /* Hero Banner */
 
@@ -39,6 +36,7 @@
 }
 
 .character-description > button:hover {
+    cursor: pointer;
     background-color: lightgreen;
     color: darkgray;
 }

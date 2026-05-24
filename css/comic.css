@@ -1,0 +1,80 @@
+@import "global.css";
+
+.comic-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 15em 5em 15em;
+}
+
+/* General info */
+
+.general-info {
+    margin: 5em 0 0 0;
+}
+
+.general-info > img {
+    width: 650px;
+    height: 1000px;
+    object-fit: contain;
+}
+
+.issue-details > * {
+    align-self: center;
+    margin: 0.5em 0;
+}
+
+.issue-details > div {
+    font-size: 20px;
+}
+
+/* Comic info */
+
+.comic-info {
+    margin: 3.5em 5em 5em 0;
+    width: 40em;
+}
+
+.comic-info button {
+    padding: 5px;
+    margin: 1em 0 0 0;
+    background-color: darkgreen;
+    color: white;
+    font-size: 25px;
+}
+
+.comic-info button:hover {
+    cursor: pointer;
+    background-color: lightgreen;
+    color: darkgray;
+}
+
+.comic-info h2 {
+    margin: 1em 0;
+    border-bottom: 1px gray solid;
+}
+
+.description {
+    font-size: 17px;
+}
+
+.character-container, .creator-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.character-container a, .creator-container a {
+    text-align: center;
+}
+
+.character-container a:hover, .creator-container a:hover {
+    cursor: pointer;
+    color: gray;
+}
+
+.character-container img, .creator-container img {
+   max-width: 100px;
+    max-height: 100px;
+    object-fit: contain;
+}
