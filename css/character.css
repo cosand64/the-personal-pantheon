@@ -44,10 +44,10 @@
 /* Character info */
 
 .character-info {
-    margin: 2em 18em 0 18em;
+    margin: 2em 10% 0 10%;
     display: grid;
     grid-template-columns: 70% 5% 25%;
-    grid-template-rows: 50% 50%;
+    grid-template-rows: 40% 60%;
 }
 
 .character-info h2 {
@@ -72,4 +72,17 @@
 .recent-issues {
     grid-column: 1/4;
     grid-row: 2/3;
+    text-align: center;
+    justify-self: center;
+}
+
+.recent-issues a {
+    cursor: pointer;
+}
+
+@media screen and (min-width: 940px) {
+    .character-info {
+        margin: 2em 15% 0 15%;
+        grid-template-rows: 50% 50%;
+    }
 }

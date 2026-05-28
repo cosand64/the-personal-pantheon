@@ -11,11 +11,12 @@
 .general-info {
     margin: 5em 15% 0 15%;
     justify-items: center;
+    align-self: center;
 }
 
 .general-info > img {
-    width: 325px;
-    height: 500px;
+    max-width: 300px;
+    max-height: 475px;
 }
 
 .issue-details > * {
@@ -27,15 +28,15 @@
     font-size: 20px;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 910px) {
     .general-info {
         margin: 0 5% 5em 5%;
         justify-self: center;
     }
 
     .general-info > img {
-        width: 650px;
-        height: 1000px;
+        max-width: 650px;
+        max-height: 1000px;
         object-fit: contain;
     }
 }
@@ -45,7 +46,7 @@
 .comic-info {
     margin: 0 5% 5em 5%;
     width: 50ch;
-    justify-content: center;
+    align-self: center;
 }
 
 .comic-info button {
@@ -79,6 +80,8 @@
 
 .character-container a, .creator-container a {
     text-align: center;
+    text-decoration: none;
+    color: black;
 }
 
 .character-container a:hover, .creator-container a:hover {
@@ -92,12 +95,13 @@
     object-fit: contain;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 910px) {
     .comic-container {
         flex-direction: row;
     }
 
     .comic-info {
         margin: 3.5em 5% 5em 5%;
+        align-self: auto;
     }
 }
