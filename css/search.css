@@ -1,5 +1,7 @@
 @import "global.css";
 
+/* General Search */
+
 h1 {
     text-align: center;
     justify-self: center;
@@ -52,40 +54,7 @@ button {
     align-items: center;
 }
 
-.specific-search-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 1em;
-}
-
-.specific-search-container > details:hover {
-    cursor: pointer;
-}
-
-.character-form, .comic-form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    margin-left: 1em;
-    padding: 1em 1em 1em 0;
-    align-items: center;
-}
-
-.character-form > input, .comic-form > input {
-    height: 20px;
-}
-
-.character-form > button, .comic-form > button {
-    height: 20px;
-    width: 5em;
-}
-
-.character-form > button:hover, .comic-form > button:hover {
-    cursor: pointer;
-    background-color: lightgreen;
-    color: darkgray;
-}
+/* Results */
 
 .results-container {
     display: flex;

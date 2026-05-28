@@ -1,4 +1,15 @@
+::root {
+    --title-color: black;
+    --word-color: black;
+    --background-color: #c0e6de;
+    --card-color: #7b8cde;
+    --header-color: #9999C3;
+    --footer-color: #BB999C;
+    --extra-color: #E88D67;
+}
+
 * {
     margin: 0;
     padding: 0;
 }
+

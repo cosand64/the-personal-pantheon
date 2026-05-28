@@ -13,34 +13,16 @@
     <main>
         <h1>General Search:</h1>
         <form class="general-form">
+            <select>
+                <option>All</option>
+                <option>Character</option>
+                <option>Comic</option>
+            </select>
             <input type="text" placeholder="Search for a character and comic" id="general-search">
             <button type="submit" id="general-search-btn"> 
                 <span class="material-symbols-outlined" id="search-icon">search</span>
             </button>
         </form>
-        <h1>Search for a specifc character or comic:</h1>
-        <div class="specific-search-container">
-            <details name="specific-search">
-                <summary>Search by Character</summary>
-                <form class="character-form">
-                    <label for="charactername">Character name:</label>
-                    <input type="text" id="character-name" name="charactername" placeholder="Character Name">
-                    <label for="createdyear">Year created (optional):</label>
-                    <input type="text" id="created-year" name="createdyear" placeholder="Year Created">
-                    <button type="submit">Search</button>
-                </form>
-            </details>
-            <details name="specific-search">
-                <summary>Search by Comic</summary>
-                <form class="comic-form">
-                    <label for="comicname">Comic name:</label>
-                    <input type="text" id="comic-name" name="comicname" placeholder="Comic Name">
-                    <label for="createdyear">Year created (optional):</label>
-                    <input type="text" id="created-year" name="createdyear" placeholder="Year Created">
-                    <button type="submit">Search</button>
-                </form>
-            </details>
-        </div>
         <h1>Results:</h1>
         <div class="results-container">
             <span class="result-card">
