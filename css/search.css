@@ -1,0 +1,44 @@
+@import "global.css";
+
+h1 {
+    text-align: center;
+    justify-self: center;
+    margin: 1.5em;
+    border-bottom: 3px solid black;
+}
+
+button, input {
+    height: 30px;
+    max-height: 32px;
+    padding: 0;
+    margin: 0;
+}
+
+input {
+    width: 30em;
+}
+
+#general-search-btn {
+    padding-bottom: 2.60em;
+} 
+
+#search-icon {
+    padding-top: 5px;
+}
+
+.general-form {
+    justify-self: center;
+
+}
+
+.specific-search-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.character-form, .comic-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
