@@ -49,6 +49,10 @@ main {
     font-size: 28px;
 }
 
+#logo {
+    width: 50%;
+}
+
 .nav-right {
     flex-grow: 1;
     display: flex;
