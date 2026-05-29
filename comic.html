@@ -7,18 +7,35 @@
     <link rel="stylesheet" href="css/comic.css">
 </head>
 <body>
-    <header></header>
+    <header class="top-nav">
+        <div class="nav-left">
+            <button class="icon-btn">&#9776;</button> 
+            <button class="icon-btn home-btn"><img id="logo" src="../images/personal-pantheon-logo.png" alt=""></button> 
+        </div>
+        
+        <div class="nav-right">
+            <div class="search-container">
+                <form class="general-form" action="search.html">
+                    <input type="text" placeholder="Search... " id="general-search">
+                    <button type="submit" id="general-search-btn" class="icon-btn"> 
+                        <span class="material-symbols-outlined" id="search-icon">search</span>
+                    </button>
+                </form>
+                <button class="icon-btn user-btn">&#128100;</button> 
+            </div>
+        </div>
+    </header>
+
     <main>
         <div class="comic-container">
             <div class="general-info">
-                <img src="../images/theend2099-issue5.jpg">
+                <img src="images/theend2099-issue5.jpg">
                 <section class="issue-details">
                     <h2>Issue Details</h2>
                     <div id="name">Name:</div>
                     <div id="volume">Volume: The End 2099</div>
                     <div id="issue-number">Issue Number: 5</div>
-                </section>
-                
+                </section>   
             </div>
             <div class="comic-info">
                 <button>Favorite</button>
@@ -34,15 +51,15 @@
                     <h2>Characters</h2>
                     <div class="character-container">
                         <a href="character.html">
-                            <img src="../images/character-1.jpg">
+                            <img src="images/character-1.jpg">
                             <h3>Black Panther 2099</h3>
                         </a>
                         <a href="character.html">
-                            <img src="../images/character-2.jpg">
+                            <img src="images/character-2.jpg">
                             <h3>Blade 2099</h3>
                         </a>
                         <a href="character.html">
-                            <img src="../images/character-3.jpg">
+                            <img src="images/character-3.jpg">
                             <h3>Blood Hawk</h3>
                         </a>
                     </div>
@@ -51,17 +68,17 @@
                     <h2>Creators</h2>
                     <div class="creator-container">
                         <a>
-                            <img src="../images/creator-1.jpg">
+                            <img src="images/creator-1.jpg">
                             <h3>Andrew Dalhouse</h3>
                             <span>colorist</span>
                         </a>
                         <a>
-                            <img src="../images/creator-2.jpg">
+                            <img src="images/creator-2.jpg">
                             <h3>C.B. Cebulski</h3>
                             <span>editor, other</span>
                         </a>
                         <a>
-                            <img src="../images/creator-3.jpg">
+                            <img src="images/creator-3.jpg">
                             <h3>David Marquez</h3>
                             <span>cover</span>
                         </a>
@@ -70,6 +87,14 @@
             </div>
         </div>
     </main>
-    <footer></footer>
+    <footer class="site-footer">
+        <div class="footer-left">
+            <div class="footer-icon-placeholder">&#127924;</div> 
+        </div>
+        <div class="footer-right">
+            <p>contact us</p>
+            <p>emalexample@emailexample.com</p>
+        </div>
+    </footer>
 </body>
 </html>

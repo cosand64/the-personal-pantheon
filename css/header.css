@@ -1,0 +1,46 @@
+@import "global.css";
+
+header {
+    background-color: var(--header-color);
+}
+
+/* --- Header / Navigation --- */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ccc;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+    box-shadow: 5px 0 5px lightgray;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+.home-btn {
+    font-size: 28px;
+}
+
+#logo {
+    width: 50%;
+}
+
+.nav-right {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}

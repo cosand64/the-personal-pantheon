@@ -1,5 +1,7 @@
 /* --- Base Styles & Reset --- */
 @import "global.css";
+@import "header.css";
+@import "footer.css";
 
 body {
     background-color: #f0f0f0; 
@@ -12,51 +14,10 @@ body {
 main {
     flex-grow: 1; 
     padding: 20px 15px;
-    background-color: #fff; 
-    max-width: 600px;
+    background-color: var(--bg-color);
+    max-width: 1000px;
     margin: 0 auto;
     width: 100%;
-}
-
-/* --- Header / Navigation --- */
-.top-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 15px;
-    background-color: #fff;
-    border-bottom: 1px solid #ccc;
-    max-width: 600px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-.nav-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.icon-btn {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #333;
-}
-
-.home-btn {
-    font-size: 28px;
-}
-
-#logo {
-    width: 50%;
-}
-
-.nav-right {
-    flex-grow: 1;
-    display: flex;
-    justify-content: flex-end;
 }
 
 /* Search Container and Form Styles */
@@ -102,6 +63,7 @@ main {
 .gallery-section {
     margin-bottom: 30px;
     text-align: center;
+    background-color: var(--card-color);
 }
 
 .gallery-section h2 {
@@ -144,34 +106,4 @@ main {
     object-fit: contain;
     border-radius: 4px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
-}
-
-/* --- Footer --- */
-.site-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 15px;
-    background-color: #fff;
-    max-width: 600px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-.footer-left .footer-icon-placeholder {
-    font-size: 32px;
-    color: #333;
-    background-color: #ddd;
-    border-radius: 4px;
-    padding: 5px;
-}
-
-.footer-right {
-    text-align: right;
-    font-size: 12px;
-    color: #555;
-}
-
-.footer-right p {
-    margin: 2px 0;
 }

@@ -1,4 +1,6 @@
 @import "global.css";
+@import "header.css";
+@import "footer.css";
 
 .comic-container {
     display: flex;
@@ -9,8 +11,8 @@
 /* General info */
 
 .general-info {
-    margin: 5em 15% 0 15%;
-    justify-items: center;
+    margin: 0 15%;
+    justify-items: left;
     align-self: center;
 }
 
@@ -35,8 +37,8 @@
     }
 
     .general-info > img {
-        max-width: 650px;
-        max-height: 1000px;
+        max-width: 433.33px;
+        max-height: 666.67px;
         object-fit: contain;
     }
 }
@@ -78,6 +80,10 @@
     justify-content: space-evenly;
 }
 
+.character-container h3, .creator-container h3{
+    font-size: 20px;
+}
+
 .character-container a, .creator-container a {
     text-align: center;
     text-decoration: none;
@@ -103,5 +109,9 @@
     .comic-info {
         margin: 3.5em 5% 5em 5%;
         align-self: auto;
+    }
+
+    .character-container h3, .creator-container h3{
+        font-size: 15px;
     }
 }
