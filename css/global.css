@@ -1,7 +1,7 @@
 ::root {
     --title-color: black;
     --word-color: black;
-    --background-color: #c0e6de;
+    --bg-color: #c0e6de;
     --card-color: #7b8cde;
     --header-color: #9999C3;
     --footer-color: #BB999C;
@@ -11,5 +11,7 @@
 * {
     margin: 0;
     padding: 0;
+    background-color: var(--bg-color);
 }
+
 
