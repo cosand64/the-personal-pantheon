@@ -12,14 +12,14 @@
     <header class="top-nav">
         <div class="nav-left">
             <button class="icon-btn">&#9776;</button> 
-            <button class="icon-btn home-btn"><img id="logo" src="../images/personal-pantheon-logo.png" alt=""></button> 
+            <a class="home-btn"><img id="logo" src="../images/personal-pantheon-logo.png" alt=""></a> 
         </div>
     </header>
 
     <main>
         <h1>General Search:</h1>
         <form class="general-form">
-            <select>
+            <select id="search-options">
                 <option>All</option>
                 <option>Character</option>
                 <option>Comic</option>
@@ -29,7 +29,7 @@
                 <span class="material-symbols-outlined" id="search-icon">search</span>
             </button>
         </form>
-        <h1>Results:</h1>
+        <h1 id="results-title">Results:</h1>
         <div class="results-container">
             <span class="result-card">
                 <a href="character.html">

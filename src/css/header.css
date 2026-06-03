@@ -31,16 +31,21 @@ header {
     color: #333;
 }
 
-.home-btn {
-    font-size: 28px;
-}
-
 #logo {
-    width: 50%;
+    height: 80px;
+    width: 147px;
+    border-radius: 3px;
 }
 
 .nav-right {
     flex-grow: 1;
     display: flex;
     justify-content: flex-end;
+}
+
+@media screen and (min-width: 700px) {
+    #logo {
+        height: 90px;
+        width: 167px;
+    }
 }
