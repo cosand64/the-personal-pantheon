@@ -7,13 +7,11 @@ header {
 /* --- Header / Navigation --- */
 .top-nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 10px 15px;
     border-bottom: 1px solid #ccc;
     max-width: 1000px;
     margin: 0 auto;
-    width: 100%;
     box-shadow: 5px 0 5px lightgray;
 }
 
