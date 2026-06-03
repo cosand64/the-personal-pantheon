@@ -29,8 +29,9 @@ main {
     background-color: var(--bg-color);
     box-shadow: 5px 0 5px lightgray;
     max-width: 1000px;
-    padding: 10px 15px;
+    padding: 20px 15px;
     margin: 0 auto;
+    min-height: 76vh;
 }
 
 .saved {
