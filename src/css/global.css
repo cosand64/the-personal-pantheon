@@ -17,14 +17,6 @@ body {
     background-color: #f0f0f0; ;
 }
 
-header {
-    background-color: var(--header-color);
-}
-
-footer {
-    background-color: var(--footer-color);
-}
-
 main {
     background-color: var(--bg-color);
     box-shadow: 5px 0 5px lightgray;

@@ -1,6 +1,7 @@
 @import "global.css";
 
 /* --- Footer --- */
+
 .site-footer {
     display: flex;
     justify-content: space-between;
@@ -9,6 +10,7 @@
     max-width: 1000px;
     margin: 0 auto;
     box-shadow: 5px 0 5px lightgray;
+    background-color: var(--footer-color);
 }
 
 .footer-left .footer-icon-placeholder {

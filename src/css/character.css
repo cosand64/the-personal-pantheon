@@ -53,13 +53,13 @@ h2 {
 
 @media screen and (min-width: 900px) {
     .hero-banner {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    object-fit: cover;
-    background-color: var(--card-color);
-    margin: 0 -15px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        object-fit: cover;
+        background-color: var(--card-color);
+        margin: 0 -15px;
     }
 
     .character-description > button {
