@@ -33,4 +33,15 @@ main {
     margin: 0 auto;
 }
 
+.saved {
+    display: none;
+    color: black;
+}
+
+.show {
+    display: inline;
+    background-color: var(--header-color);
+    padding: 10px;  
+}
+
 
