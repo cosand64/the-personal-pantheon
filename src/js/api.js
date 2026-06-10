@@ -5,7 +5,8 @@ async function getJson(url) {
   const options = {
     method: "GET",
     headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        "Access-Control-Allow-Origin": "*"
     }
   };
   let data = {};
