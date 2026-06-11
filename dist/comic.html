@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comic</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0&icon_names=search" />
+    <script defer src="js/character-comic.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/comic-DgwbK4Du.css">
+</head>
+<body>
+    <header class="top-nav">
+        <div class="nav-left">
+            <button class="icon-btn">&#9776;</button> 
+            <a class="home-btn" href="index.html"><img id="logo" src="../images/personal-pantheon-logo.png" alt=""></a> 
+        </div>
+        
+        <div class="nav-right">
+            <div class="search-container">
+                <form class="general-form" action="search.html">
+                    <input type="text" placeholder="Search... " id="general-search">
+                    <button type="submit" id="general-search-btn" class="icon-btn"> 
+                        <span class="material-symbols-outlined" id="search-icon">search</span>
+                    </button>
+                </form>
+                <a class="icon-btn user-btn" href="favorites.html">&#128100;</a> 
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="comic-container">
+            <div class="general-info">
+                <img src="/assets/theend2099-issue5-Bgp-7-YZ.jpg">
+                <section class="issue-details">
+                    <h2>Issue Details</h2>
+                    <div id="name">Name:</div>
+                    <div id="volume">Volume: The End 2099</div>
+                    <div id="issue-number">Issue Number: 5</div>
+                </section>   
+            </div>
+            <div class="comic-info">
+                <button class="fav-btn">Favorite</button>
+                <div class="saved">Comic saved!</div>
+                <section class="description">
+                    <h2>Description</h2>
+                    <p>THE END IS HERE!</p>
+                    <p>As ABYSSUS’ KNULLIFIED forces take the upper hand against the warriors of 2099, all hope for their survival rests on NOVA 2099’s gamble to secure a secret weapon from the NEGATIVE ZONE!</p>
+                    <p>But with half of his team dead, will Nova and his remaining team members be able to return before the remaining 2099 warriors are torn to pieces?</p>
+                    <p>And what of the fate of SPIDER-MAN 2099?</p>
+                    <p>Don’t miss out as the fate of 2099 is decided once and for all in this epic series finale!</p>
+                </section>
+                <section class="characters">
+                    <h2>Characters</h2>
+                    <div class="character-container">
+                        <a href="character.html">
+                            <img src="data:image/jpeg;base64,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">
+                            <h3>Black Panther 2099</h3>
+                        </a>
+                        <a href="character.html">
+                            <img src="data:image/jpeg;base64,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">
+                            <h3>Blade 2099</h3>
+                        </a>
+                        <a href="character.html">
+                            <img src="/assets/character-3-Bipw6d6V.jpg">
+                            <h3>Blood Hawk</h3>
+                        </a>
+                    </div>
+                </section>
+                <section class="creators">
+                    <h2>Creators</h2>
+                    <div class="creator-container">
+                        <a>
+                            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gA7Q1JFQVRPUjogZ2QtanBlZyB2MS4wICh1c2luZyBJSkcgSlBFRyB2NjIpLCBxdWFsaXR5ID0gNTAK/9sAQwAQCwwODAoQDg0OEhEQExgoGhgWFhgxIyUdKDozPTw5Mzg3QEhcTkBEV0U3OFBtUVdfYmdoZz5NcXlwZHhcZWdj/9sAQwEREhIYFRgvGhovY0I4QmNjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2Nj/8AAEQgAHgAeAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A0b2S3uNDeRZyZISGZD1B6Y/KsCw1PULdi1qigEY/eDNTapE4twfLAdhtbB4Pof8APrVWyZxDgLvZugxwOPX8KTitmEFc3LbxBJIjLexiN1GSyfdYd/xq8usQ2toLu6A8yZzhAM7B6VzsSfLulQMEIfB7/wD1ulQ26zasJoywX955ilgfTB/pWHso037q0CV7mz5qataMqhDJEm3zEGMn3rmbe68h1hl4QNnBOKhi1Ga23i1YxlxgsOuP6VVEjFy7/OScndzmux020TF2ZsRXSvPIiS7UMZXIPA9q6TSEtrfTUa0urcTMfnLAtgemMjFcS05IwihPoaYGI70ex5twk9T/2Q==">
+                            <h3>Andrew Dalhouse</h3>
+                            <span>colorist</span>
+                        </a>
+                        <a>
+                            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD/wAARCAAeAB4DAREAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABwMGCP/EACcQAAEDAwQCAgIDAAAAAAAAAAECAwQFBhEAEiExBxMiQQhhFiNS/8QAGQEAAwEBAQAAAAAAAAAAAAAABAUGAwIA/8QAJxEAAQMDBAEEAwEAAAAAAAAAAQACAwQRIQUSMVFBE2FxkTKx0fH/2gAMAwEAAhEDEQA/ACm/a7cUTxUa7baahIqLtabZXJEnc63I9e5ThT2diUp5xwVYOSRqMpYGyvBfwOfdbQNdPwLn26UbBN32jdqb9rflSsVet8KfjS21PsyHXPiUuF3d7Bg9YHQPGNE1bWTQkNaAfBTd2mhkbiTkDpIflSVHu+4oL6osNbdDpTURLaWSvc0gfBbgUnnaVcq6571Mg1ttuwWPlKJWyPdYZthG9Gu+kWlUJECjWmzTJSgVu1GSr1NyckbglpvaEZISQnPAT+9MJYTNGNz7+3+rtrjHh2PnykunW45flmU4Ui3W4NVpykPOOAqYRMQtBBdSlaElW4BGPrAV3kENaChfOHSRuvY2svUNaylm3yYBFsfxTptNl/ySAiq09cVukOMvS/cUpbU0FgFJyM/IkD7GNa1ELo4n2GQMjyqKXU2uZY5B4PhZLzhIvd7y/Nl2A0YUCjsnfVmjlr+1O5wpUfj6wjYkDHSdCaIGVFJulbyTjqxU42VxO5mCnHwFCumdYjaabEtKpwXJC5KJldhKkO71BKVJChkjlJOCdZV4Y2awbaycU7vWjG/K19lhpyfIZmBpxbKhGTsGEJQ0NiEpH0kJSAP1qx0OhFNSMYRm1z8nJUXUyZwtHcFuUirUyZR6lAQ9CnsqadA4JSfoEcg/YI6IGmk9O144yuYKhzDzhcheZ2o/juNULKtt55aawv2zpa1hftZCiMKJztwMJPXR1NMgliqHA/hjaOux9py2XczjP7UrDva6KFSHqHbFaebiNupe3oQFIUpSecAkY6H70BXxNeQ48o+lldGCAcJW8a3kuS8+2yHMxXVNklASFbDg8AnGqTQ53TUjC/kY+lO18HoyEdp+pklVWhBLv+Qc4508LQ4JcDtK5d/Ie0KdErU5FOaLcmsOolSFqX8SoJKOBtJTnGSOiTnU3qcrKeTbbJ+lSaXSyVUW+4sDZCV4XfBtmnQYaWJLMloluUtgIUlxY6IzjjA+xnSR8bpzcJ2Y4YY8jN7L/9k=">
+                            <h3>C.B. Cebulski</h3>
+                            <span>editor, other</span>
+                        </a>
+                        <a>
+                            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD/wAARCAAeAB4DAREAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAABAYHBQj/xAAqEAACAgIBAwMEAQUAAAAAAAABAgMEBREGAAchEhMxCCJBYVEVQoGRsf/EABoBAAMAAwEAAAAAAAAAAAAAAAQFBgECAwf/xAAlEQACAgEDBAIDAQAAAAAAAAABAgADEQQFMRIhIkEyURNxgcH/2gAMAwEAAhEDEQA/AJ3jHNDCifI2AI6iM8sh8AAbJPXndjNa2EHMu+ha8s0geRv5/vRn5GWRxjorPsVaxOooUOwrN+CzaP8AwdVOk01O3V+Xy9mTt1lu4WYXj1Aq/B6WMzqU+S4E0qrSSVhbk37bTqCfT/G9A/66NWxLfgYHdTZQPIRgl4dwuR2ihekQp2GVwBr/ACP31kYEHLNLTT7X827wUrfEOCRbuWdRzWJWK16ldiDJLKQPAABGhsnehvfU/tGmNtoI4EpN1u/HUR9xopdjcN9IeCnz3MbdDly5GCOMMtWQRwTq4aOeT5KxgsQdb/t/np7uGkdlBQxXtuoWliXgWQ5DD39uQdv8VxzE3rEM8uZsX8PBqN2VW2g9W/VKAQfBP2k/k66VJp7xk1jv9e44fU0Mw6z4/eO0nMHbrD4G9Yi5NnrM6sxWKvYoxxtEVPnel2D51o9crbXPii4I57mF1afHk7dQPHYf5O+O3fEMd2L4Dar4+9FaybIbl+28JQySKulC78hVJ+0ed+T8nXVDttdFNPTU2T7kvr2utsDWDA9RHvVMT3kxFbN36DxRqbFgxTsSTIU16nC/yVY+k/HyOjXRbkw3BgyuaXyvImTwfhWHw1qWbC0TSvVppKomSQRlEI3J6ACPLDS7/Z6W6HRtQ7M5yeB+ow1uqW5FVR25/sH+oftjh+Z4fEcqSylbMRSig9kqEaSEISUdSdMQVUhtb0SN9bbjp1tUMOZtteoapypJxibn1G2MzQt4PLRZFxjKN5bNqmpKmx7Z9SqWH4+0+PyddB7KiWaplbnHaY3W100ysOM94lVreWxXJ5/6fKixSBW9sSNGCJRv8eAQg18HyT1QsnSYoVsiavNu5R4xWnstifenliBQGUMvqlYEEkrvwAAeh7LBWpbEJqr62C5lXzna4cv4Zi8bayYq+hkvNJXQIzyOr734+P1+h1tZULFxOddxrbIn/9k=">
+                            <h3>David Marquez</h3>
+                            <span>cover</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-left">
+            <div class="footer-icon-placeholder">&#127924;</div> 
+        </div>
+        <div class="footer-right">
+            <p>contact us</p>
+            <p>emalexample@emailexample.com</p>
+        </div>
+    </footer>
+</body>
+</html>
