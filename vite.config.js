@@ -15,13 +15,13 @@ export default defineConfig({
       }
     }
   },
-
+  
   server: {
     proxy: {
-      '/api/comicvine': {
-        target: 'https://comicvine.gamespot.com',
+      '/comicvine': {
+        target: 'https://comicvine.gamespot.com/api',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api\/comicvine/, '/api'),
+        rewrite: (path) => path.replace(/^\/comicvine/, '')
       }
     }
   }

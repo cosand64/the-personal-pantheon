@@ -1,4 +1,4 @@
-const baseURL = "https://comicvine.gamespot.com/api/"
+const baseURL = "/comicvine"
 const apiKey = import.meta.env.VITE_COMICVINE_API_KEY;
 
 async function getJson(url) {
@@ -6,7 +6,6 @@ async function getJson(url) {
     method: "GET",
     headers: {
         'Content-Type': 'application/json',
-        "Access-Control-Allow-Origin": "*"
     }
   };
   let data = {};
@@ -25,3 +24,25 @@ async function test(){
 }
 
 test();
+
+// // Function to fetch a list of characters
+// async function getStarWarsCharacters() {
+//   const baseUrl = 'https://starwars-databank-server.onrender.com/api/v1/characters';
+
+//   try {
+//     const response = await fetch(baseUrl);
+    
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! Status: ${response.status}`);
+//     }
+
+//     const data = await response.json();
+    
+//     console.log(data);
+    
+//   } catch (error) {
+//     console.error("Error fetching Star Wars data:", error);
+//   }
+// }
+
+// getStarWarsCharacters();
