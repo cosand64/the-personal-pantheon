@@ -11,17 +11,24 @@ async function characterInfo(id) {
     document.querySelector(".image-container > img").setAttribute('src', characterList.image.medium_url);
     document.querySelector(".character-description > h1").innerHTML = characterList.name;
     document.querySelector(".character-description > p").innerHTML = characterList.deck;
-    const extractedData = checkHTMLContent(characterList.description);
+    generalInfoElement(checkHTMLContent(characterList.description));
+    powersElement(characterList);
+    comicsElement(characterList);
+}
 
+function generalInfoElement(data) {
     generalInfo.innerHTML = "";
-    generalInfo.insertAdjacentHTML("afterbegin", extractedData);
+    generalInfo.insertAdjacentHTML("afterbegin", data);
+}
 
+function powersElement(data) {
     powers.innerHTML = "";
-    powers.insertAdjacentHTML("afterbegin", characterList.powers.map(powersTemplate).join(""));
+    powers.insertAdjacentHTML("afterbegin", data.powers.map(powersTemplate).join(""));
+}
 
-
-    const fiveIssues = characterList.issue_credits.slice(0, 7);
-    const issueIds = fiveIssues.map(issue => issue.id).join('|')
+async function comicsElement(data) {
+    const sevenIssues = data.issue_credits.slice(0, 7);
+    const issueIds = sevenIssues.map(issue => issue.id).join('|')
     const issuesInfo = await getIssues(`&filter=id:${issueIds}&field_list=id,image`)
     recentIssues.innerHTML = "";
     recentIssues.insertAdjacentHTML('afterbegin', issuesInfo.map(issuesTemplate).join(''));
@@ -50,7 +57,6 @@ function checkHTMLContent(html) {
             } else {
                 capture = false;
             }
-
         }
 
         if (capture) {
@@ -60,5 +66,14 @@ function checkHTMLContent(html) {
     return extractedHTML;
 }
 
+function searchRequest() {
+    document.querySelector(".general-form").addEventListener("submit", e => {
+        e.preventDefault();
+        const searchQuery = document.querySelector("#general-search").value;
+        console.log(searchQuery);
+        window.location.href = `search.html?query=${searchQuery}`;
+    })
+}
 
+searchRequest();
 characterInfo(characterId);

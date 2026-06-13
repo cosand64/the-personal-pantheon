@@ -1,3 +1,15 @@
+export function featuredTemplate(info) {
+    return `<a href='comic.html?id=${info.id}'>
+        <img src='${info.image.screen_large_url}' alt='${info.name} cover'>
+    </a>
+    <span>
+        <a href='comic.html?id=${info.id}'>
+            <h2>Featured</h2>
+            <h2>${info.name}</h2>
+        </a>
+    </span>`;
+}
+
 export function comicTemplate(info) {
     return `<a href='comic.html?id=${info.id}'>
         <img src='${info.image.medium_url}' alt='${info.name} cover'>
@@ -46,10 +58,19 @@ export function searchResultTemplate(info) {
         dataType = 'Comic'
     }
 
-    return `<span class="result-card" data-type="${dataType}" data-id="${info.id}">
-        <a href="${pageURL}">
-            <img src="${info.image.medium_url}">
-            <h2>${info.name} (${dataType})</h2>
-        </a>
-    </span>`;
+    if (info.name === null) {
+        return `<span class="result-card" data-type="${dataType}" data-id="${info.id}">
+            <a href="${pageURL}">
+                <img src="${info.image.medium_url}">
+                <h2>N/A (${dataType})</h2>
+            </a>
+        </span>`;
+    } else {
+        return `<span class="result-card" data-type="${dataType}" data-id="${info.id}">
+            <a href="${pageURL}">
+                <img src="${info.image.medium_url}">
+                <h2>${info.name} (${dataType})</h2>
+            </a>
+        </span>`;
+    }
 }

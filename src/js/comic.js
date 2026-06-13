@@ -14,19 +14,32 @@ async function issueInfo(id) {
     document.querySelector("#name").innerHTML = `Name: ${issueList.name}`;
     document.querySelector("#volume").innerHTML = `Volume: ${issueList.volume.name}`;
     document.querySelector("#issue-number").innerHTML = `Issue Number: ${issueList.issue_number}`;
+    characterCreditElement(issueList.character_credits);
+    creatorCreditElement(issueList.person_credits)
+}
 
-    const characters = issueList.character_credits;
-    const characterIds = characters.map(character => character.id).join('|')
+async function characterCreditElement(data) {
+    const characterIds = data.map(character => character.id).join('|')
     const characterInfo = await getCharacters(`&filter=id:${characterIds}&field_list=id,image,name`)
     characterCredits.innerHTML = "";
     characterCredits.insertAdjacentHTML('afterbegin', characterInfo.map(characterCreditTemplate).join(''));
+}
 
-    const creators = issueList.person_credits;
-    const creatorIds = creators.map(creator => creator.id).join('|')
+async function creatorCreditElement(data) {
+    const creatorIds = data.map(creator => creator.id).join('|')
     const creatorInfo = await getCreators(`&filter=id:${creatorIds}&field_list=id,image,name`)
     creatorCredits.innerHTML = "";
     creatorCredits.insertAdjacentHTML('afterbegin', creatorInfo.map(creatorsTemplate).join(''));
 }
 
+function searchRequest() {
+    document.querySelector(".general-form").addEventListener("submit", e => {
+        e.preventDefault();
+        const searchQuery = document.querySelector("#general-search").value;
+        console.log(searchQuery);
+        window.location.href = `search.html?query=${searchQuery}`;
+    })
+}
 
 issueInfo(issueId);
+searchRequest();
