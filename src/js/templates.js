@@ -1,3 +1,15 @@
+export function comicTemplate(info) {
+    return `<a href='comic.html?id=${info.id}'>
+        <img src='${info.image.medium_url}' alt='${info.name} cover'>
+    </a>`;
+}
+
+export function characterTemplate(info) {
+    return `<a href='character.html?id=${info.id}'>
+        <img src='${info.image.medium_url}' alt='Image of ${info.name}'>
+    </a>`;
+}
+
 export function powersTemplate(powers) {
     return `<li>${powers.name}</li>`;
 }
