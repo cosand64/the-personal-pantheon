@@ -63,7 +63,7 @@ button {
 
 .general-form {
     display: flex;
-    justify-self: center;
+    justify-content: center;
     align-items: center;
 }
 
