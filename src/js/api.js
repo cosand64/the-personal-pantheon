@@ -22,14 +22,24 @@ async function getJson(url, urlOptions) {
   return data;
 }
 
-export async function getCharacters(character){
-    const characters = await getJson('characters', `&filter=name:${character}`);
-    console.log(characters);
+export async function getGeneralSearch(urlOptions){
+    const searchResults = await getJson(`search`, urlOptions);
+    return searchResults.results;
 }
 
-export async function getIssues(){
-    const characters = await getJson('issues');
-    console.log(characters);
+export async function getCharacters(urlOptions){
+    const charactersResults = await getJson('characters', urlOptions);
+    return charactersResults.results;
+}
+
+export async function getIssues(urlOption){
+    const issuesResults = await getJson('issues', urlOption);
+    return issuesResults.results;
+}
+
+export async function getCreators(id, urlOptions){
+    const creatorResults = await getJson(`people`, urlOptions);
+    return creatorResults.results;
 }
 
 export async function getSpecificCharacter(id, urlOptions){
@@ -38,6 +48,8 @@ export async function getSpecificCharacter(id, urlOptions){
 }
 
 export async function getSpecificIssue(id, urlOptions){
-    const issueResults = await getJson('issues', urlOptions);
+    const issueResults = await getJson(`issue/4000-${id}`, urlOptions);
     return issueResults.results;
 }
+
+

@@ -1,4 +1,4 @@
-import { getSpecificCharacter , getSpecificIssue } from "./api";
+import { getSpecificCharacter , getIssues } from "./api";
 import { powersTemplate , issuesTemplate } from "./templates";
 
 const characterId = window.location.search.substr(4);
@@ -22,10 +22,9 @@ async function characterInfo(id) {
 
     const fiveIssues = characterList.issue_credits.slice(0, 7);
     const issueIds = fiveIssues.map(issue => issue.id).join('|')
-    const issuesInfo = await getSpecificIssue(issueIds, `&filter=id:${issueIds}&field_list=id,image`)
+    const issuesInfo = await getIssues(`&filter=id:${issueIds}&field_list=id,image`)
     recentIssues.innerHTML = "";
     recentIssues.insertAdjacentHTML('afterbegin', issuesInfo.map(issuesTemplate).join(''));
-
 }
 
 function checkHTMLContent(html) {

@@ -13,7 +13,7 @@
 .general-info {
     margin: 0 15%;
     justify-items: left;
-    align-self: center;
+    align-self: top;
 }
 
 .general-info > img {
@@ -40,6 +40,7 @@
         max-width: 433.33px;
         max-height: 666.67px;
         object-fit: contain;
+        justify-items: top;
     }
 }
 
@@ -84,20 +85,20 @@
     font-size: 20px;
 }
 
-.character-container a, .creator-container a {
+.character-container a, .creator-container span {
     text-align: center;
     text-decoration: none;
     color: black;
 }
 
-.character-container a:hover, .creator-container a:hover {
+.character-container a:hover, .creator-container span:hover {
     cursor: pointer;
     color: gray;
 }
 
 .character-container img, .creator-container img {
-   max-width: 100px;
-    max-height: 100px;
+   max-width: 50px;
+    max-height: 50px;
     object-fit: contain;
 }
 
