@@ -15,7 +15,6 @@ function searchRequest() {
     document.querySelector(".general-form").addEventListener("submit", e => {
         e.preventDefault();
         const searchQuery = document.querySelector("#general-search").value;
-        console.log(searchQuery);
         window.location.href = `search.html?query=${searchQuery}`;
     })
 }
@@ -26,7 +25,6 @@ async function featuredInfo() {
     const issueId = Math.floor((Math.random() * 100) + 1);
 
     const issueList = await getSpecificIssue(issueId.toString(), '&field_list=id,image,name');
-    console.log(issueList);
     featuredContainer.insertAdjacentHTML("afterbegin", featuredTemplate(issueList));
 }
 

@@ -1,5 +1,6 @@
 import { getSpecificCharacter , getIssues } from "./api";
 import { powersTemplate , issuesTemplate } from "./templates";
+import { favoriteButton } from "./character-comic";
 
 const characterId = window.location.search.substr(4);
 const generalInfo = document.querySelector(".general-info");
@@ -14,6 +15,7 @@ async function characterInfo(id) {
     generalInfoElement(checkHTMLContent(characterList.description));
     powersElement(characterList);
     comicsElement(characterList);
+    favoriteButton(characterList);
 }
 
 function generalInfoElement(data) {

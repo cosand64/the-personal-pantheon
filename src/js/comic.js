@@ -1,5 +1,6 @@
 import { getCharacters , getCreators, getSpecificIssue } from "./api";
 import { characterCreditTemplate , creatorsTemplate } from "./templates";
+import { favoriteButton , nullName } from "./character-comic";
 
 const issueId = window.location.search.substr(4);
 const issueImg = document.querySelector(".general-info > img");
@@ -11,11 +12,12 @@ async function issueInfo(id) {
 
     issueImg.setAttribute('src', issueList.image.medium_url);
     document.querySelector(".description").innerHTML = issueList.description;
-    document.querySelector("#name").innerHTML = `Name: ${issueList.name}`;
+    document.querySelector("#name").innerHTML = `Name: ${nullName(issueList.name)}`;
     document.querySelector("#volume").innerHTML = `Volume: ${issueList.volume.name}`;
     document.querySelector("#issue-number").innerHTML = `Issue Number: ${issueList.issue_number}`;
     characterCreditElement(issueList.character_credits);
     creatorCreditElement(issueList.person_credits)
+    favoriteButton(issueList);
 }
 
 async function characterCreditElement(data) {
