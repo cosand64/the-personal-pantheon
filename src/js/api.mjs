@@ -48,7 +48,7 @@ export async function getSpecificCharacter(id, urlOptions){
 }
 
 export async function getSpecificIssue(id, urlOptions){
-    const issueResults = await getJson(`issue/4000-${id}`, urlOptions);
+    const issueResults = await getJson(`issue/4000-${id.toString()}`, urlOptions);
     return issueResults.results;
 }
 

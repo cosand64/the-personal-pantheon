@@ -62,7 +62,7 @@
 }
 
 #logo {
-    height: 80px;
+    height: 50px;
     width: 147px;
     border-radius: 3px;
     opacity: 0.8;
@@ -76,7 +76,7 @@
 
 @media screen and (min-width: 700px) {
     #logo {
-        height: 90px;
-        width: 167px;
+        height: 45px;
+        width: 83.5px;
     }
 }

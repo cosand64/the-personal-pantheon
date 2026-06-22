@@ -1,33 +1,39 @@
-import { getGeneralSearch } from "./api";
-import { searchResultTemplate } from "./templates";
+import { getGeneralSearch } from "./api.mjs";
+import { searchResultTemplate } from "./templates.mjs";
 
 const resultsList = document.querySelector(".results-container");
-const query = window.location.search.substr(7);
-const searchFilter = document.querySelector("#search-options").value
+const pageQuery = new URLSearchParams(window.location.search).get('query');
+const searchFilter = document.querySelector("#search-options")
 document.querySelector("#general-search").value = '';
 
-function searchRequest() {
-    if (query) {
-        searchFromOtherPage(query);
+function searchRequestForm() {
+    if (pageQuery) {
+        console.log(pageQuery);
+        searchFromOtherPage(pageQuery);
     }
+
+    searchFilter.addEventListener('change', async () => {
+        resultsList.innerHTML = "";
+
+        const searchQuery = document.querySelector("#general-search").value;
+        const results = await filterResults(searchQuery);
+        if (results) {
+            console.log(results)
+            resultsList.insertAdjacentHTML('afterbegin', results.map(searchResultTemplate).join(''));
+        } else {
+            resultsList.innerHTML = 'No results found.'
+        }
+    })
 
     document.querySelector(".general-form").addEventListener("submit", async (e) => {
         e.preventDefault();
-        let searchResults = {};
         resultsList.innerHTML = "";
-        const searchQuery = document.querySelector("#general-search").value;
         
-        if (searchFilter === 'All') {
-            searchResults = await getGeneralSearch(`&query=${searchQuery.toString()}&resources=character,issue`);
-        } else if (searchFilter === 'Character') {
-            searchResults = await getGeneralSearch(`&query=${searchQuery.toString()}&resources=character`);
-        } else if (searchFilter === 'Comic') {
-            searchResults = await getGeneralSearch(`&query=${searchQuery.toString()}&resources=issue`);
-            console.log(searchResults);
-        }
-
-        if (searchResults) {
-            resultsList.insertAdjacentHTML('afterbegin', searchResults.map(searchResultTemplate).join(''));
+        const searchQuery = document.querySelector("#general-search").value;
+        const results = await filterResults(searchQuery);
+        if (results) {
+            console.log(results)
+            resultsList.insertAdjacentHTML('afterbegin', results.map(searchResultTemplate).join(''));
         } else {
             resultsList.innerHTML = 'No results found.'
         }
@@ -43,14 +49,28 @@ async function searchFromOtherPage(keyword) {
     }
 }
 
-resultsList.addEventListener("click", (e) => {
-    e.preventDefault();
-    const targetItem = e.target.closest(".result-card");
-    if (targetItem.getAttribute('data-type') === 'Character') {
-        window.location.href = `character.html?id=${targetItem.getAttribute('data-id')}`
-    } else if (targetItem.getAttribute('data-type') === 'Comic') {
-        window.location.href = `comic.html?id=${targetItem.getAttribute('data-id')}`
+async function filterResults(query) {
+    if (searchFilter.value === 'Character') {
+        return await getGeneralSearch(`&query=${query}&resources=character`);
+    } else if (searchFilter.value === 'Comic') {
+        return await getGeneralSearch(`&query=${query}&resources=issue`);
+    } else {
+        return await getGeneralSearch(`&query=${query}&resources=character,issue`);
     }
-})
+}
 
-searchRequest();
+function init() {
+    searchRequestForm();
+
+    resultsList.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetItem = e.target.closest(".result-card");
+        if (targetItem.getAttribute('data-type') === 'Character') {
+            window.location.href = `character.html?id=${targetItem.getAttribute('data-id')}`
+        } else if (targetItem.getAttribute('data-type') === 'Comic') {
+            window.location.href = `comic.html?id=${targetItem.getAttribute('data-id')}`
+        }
+    });
+}
+
+init();

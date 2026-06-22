@@ -10,7 +10,6 @@ export function favoriteButton(item) {
         
         if (localStorage.getItem("favorites")) {
             favoritesList = JSON.parse(localStorage.getItem("favorites"));
-            console.log(favoritesList);
         }
 
         if (window.location.href.includes("comic")) {

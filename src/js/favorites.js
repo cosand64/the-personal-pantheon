@@ -1,4 +1,5 @@
-import { favoriteTemplate } from "./templates";
+import { favoriteTemplate } from "./templates.mjs";
+import { searchRequest } from "./navigation.mjs";
 
 function displayFavorites() {
     const characterFavorites = document.querySelector("#saved-characters");
@@ -30,4 +31,10 @@ function removeItem(favorites) {
     })
 }
 
-displayFavorites();
+function init() {
+    displayFavorites();
+    searchRequest();
+}
+
+init();
+

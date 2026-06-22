@@ -1,8 +1,9 @@
-import { getSpecificCharacter , getIssues } from "./api";
-import { powersTemplate , issuesTemplate } from "./templates";
-import { favoriteButton } from "./character-comic";
+import { getSpecificCharacter , getIssues } from "./api.mjs";
+import { powersTemplate , issuesTemplate } from "./templates.mjs";
+import { favoriteButton } from "./character-comic.mjs";
+import { searchRequest } from "./navigation.mjs";
 
-const characterId = window.location.search.substr(4);
+const characterId = new URLSearchParams(window.location.search).get('id');
 const generalInfo = document.querySelector(".general-info");
 const powers = document.querySelector(".powers > ul");
 const recentIssues = document.querySelector(".recent-issues");
@@ -68,14 +69,9 @@ function checkHTMLContent(html) {
     return extractedHTML;
 }
 
-function searchRequest() {
-    document.querySelector(".general-form").addEventListener("submit", e => {
-        e.preventDefault();
-        const searchQuery = document.querySelector("#general-search").value;
-        console.log(searchQuery);
-        window.location.href = `search.html?query=${searchQuery}`;
-    })
+function init() {
+    searchRequest();
+    characterInfo(characterId);
 }
 
-searchRequest();
-characterInfo(characterId);
+init();
