@@ -93,6 +93,7 @@ h2 {
     color: white;
     padding: 5px;
     margin: 1rem 0;
+    max-width: 250px;
 }
 
 .general-info img {
@@ -131,6 +132,10 @@ h2 {
     .character-info {
         margin: 2em 15% 0 15%;
         grid-template-rows: auto;
+    }
+
+    .general-info figure {
+        max-width: 480px;
     }
 }
 
