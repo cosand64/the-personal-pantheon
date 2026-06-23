@@ -15,23 +15,24 @@ async function comicInfo() {
 async function featuredInfo() {
     const featuredContainer = document.querySelector(".featured-section");
     featuredContainer.innerHTML = "";
-    let issueId = Math.floor((Math.random() * 10000) + 1);
 
-    let issueList = await getSpecificIssue(issueId.toString(), '&field_list=id,image,name');
-
-    if (!issueList.image) {
-        issueId = Math.floor((Math.random() * 10000) + 1);
-        issueList = await getSpecificIssue(issueId.toString(), '&field_list=id,image,name');
-    }
+    let issueList = await getSpecificIssue('1156300', '&field_list=id,image,name');
 
     featuredContainer.insertAdjacentHTML("afterbegin", featuredTemplate(issueList));
 }
 
-function init() {
+async function init() {
+
+    await Promise.all([
+        featuredInfo(),
+        comicInfo(),
+        characterInfo()
+    ])
+
     searchRequest();
-    featuredInfo();
-    comicInfo();
-    characterInfo();
+
+    // Once everything is loaded, reveal it.
+    document.querySelector("main > div").classList.add("loaded")
 }
 
 init();

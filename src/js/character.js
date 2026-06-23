@@ -4,20 +4,23 @@ import { favoriteButton } from "./character-comic.mjs";
 import { searchRequest } from "./navigation.mjs";
 import '../css/character.css';
 
-
-
-
-
-
-
 async function characterInfo(id) {
     const characterId = new URLSearchParams(window.location.search).get('id');
     const characterList = await getSpecificCharacter(characterId, '&field_list=deck,description,id,image,powers,issue_credits,name');
-    comicsElement(characterList);
-    characterInfoElement(characterList);
-    generalInfoElement(checkHTMLContent(characterList.description));
-    powersElement(characterList);
+
+    await Promise.all([
+        comicsElement(characterList),
+        characterInfoElement(characterList),
+        generalInfoElement(checkHTMLContent(characterList.description)),
+        powersElement(characterList)
+    ])
+    
     favoriteButton(characterList);
+
+    // Reveal everything once loaded
+    document.querySelector(".hero-banner").classList.add("loaded");
+    document.querySelector(".character-info").classList.add("loaded");
+    document.querySelector(".recent-issues").classList.add("loaded");
 }
 
 function characterInfoElement(data) {

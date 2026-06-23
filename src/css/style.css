@@ -4,6 +4,16 @@
 @import "footer.css";
 
 /* --- Main Content Sections --- */
+
+main > div{
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+}
+
+.loaded {
+    opacity: 1;
+}
+
 .featured-section {
     margin-bottom: 30px;
     display: flex;
@@ -16,6 +26,7 @@
 
 .featured-section a > img {
     max-width: 90%;
+    object-fit: cover;
 }
 
 .gallery-section {

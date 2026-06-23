@@ -19,18 +19,18 @@ h2 {
     min-height: 600px;
     margin: 0 -15px;
     color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
 }
 
 .image-container {
     margin: 30px;
-    /* width: 300px;
-    height: 400px; */
     border: 5px var(--header-color) solid;
     box-shadow: 2.5px 2.5px 2px white;
 }
 
 .image-container > img {
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .character-description {
@@ -75,11 +75,14 @@ h2 {
     display: grid;
     grid-template-columns: 70% 5% 25%;
     grid-template-rows: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
 }
 
 .general-info {
     grid-column: 1/2;
     grid-row: 1/2;
+    
 }
 
 .general-info figure {
@@ -110,6 +113,8 @@ h2 {
     text-align: center;
     justify-self: center;
     min-height: 260px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
 }
 
 .recent-issues a {
@@ -127,4 +132,8 @@ h2 {
         margin: 2em 15% 0 15%;
         grid-template-rows: auto;
     }
+}
+
+.loaded {
+    opacity: 1;
 }

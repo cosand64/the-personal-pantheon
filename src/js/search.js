@@ -8,7 +8,6 @@ document.querySelector("#general-search").value = '';
 
 function searchRequestForm() {
     if (pageQuery) {
-        console.log(pageQuery);
         searchFromOtherPage(pageQuery);
     }
 
@@ -18,7 +17,6 @@ function searchRequestForm() {
         const searchQuery = document.querySelector("#general-search").value;
         const results = await filterResults(searchQuery);
         if (results) {
-            console.log(results)
             resultsList.insertAdjacentHTML('afterbegin', results.map(searchResultTemplate).join(''));
         } else {
             resultsList.innerHTML = 'No results found.'
@@ -32,7 +30,6 @@ function searchRequestForm() {
         const searchQuery = document.querySelector("#general-search").value;
         const results = await filterResults(searchQuery);
         if (results) {
-            console.log(results)
             resultsList.insertAdjacentHTML('afterbegin', results.map(searchResultTemplate).join(''));
         } else {
             resultsList.innerHTML = 'No results found.'
