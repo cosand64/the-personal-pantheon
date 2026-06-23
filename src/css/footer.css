@@ -13,11 +13,9 @@
     background-color: var(--footer-color);
 }
 
-.footer-left .footer-icon-placeholder {
-    font-size: 32px;
-    color: #333;
-    background-color: #ddd;
-    border-radius: 4px;
+.footer-left {
+    width: 92px;
+    height: 90px;
     padding: 5px;
 }
 

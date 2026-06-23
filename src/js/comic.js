@@ -10,13 +10,18 @@ const creatorCredits = document.querySelector(".creator-container");
 
 async function issueInfo(id) {
     const issueList = await getSpecificIssue(id, '&field_list=description,id,image,character_credits,person_credits,issue_number,name,volume');
-    console.log(issueList);
     document.querySelector(".general-info").insertAdjacentHTML('afterbegin', issueTemplate(issueList));
     document.querySelector(".description").innerHTML = issueList.description;
 
-    characterCreditElement(issueList.character_credits);
-    creatorCreditElement(issueList.person_credits)
+    await Promise.all([
+        characterCreditElement(issueList.character_credits),
+        creatorCreditElement(issueList.person_credits)
+    ])
+    
     favoriteButton(issueList);
+
+    // Reveal everything once it is loaded
+    document.querySelector(".comic-container").classList.add("loaded");
 }
 
 async function characterCreditElement(data) {

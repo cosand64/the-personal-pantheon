@@ -22,9 +22,7 @@ function removeItem(favorites) {
     removeButton.forEach((button) => {
         button.addEventListener("click", e => {
             const itemContainer = e.currentTarget.closest('article');
-            console.log(itemContainer);
             favorites = favorites.filter(favorite => String(favorite.id) !== itemContainer.getAttribute('data-id'))
-            console.log(favorites);
             localStorage.setItem("favorites", JSON.stringify(favorites)); 
             itemContainer.remove();
         })

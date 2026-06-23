@@ -6,6 +6,8 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
 }
 
 /* General info */
@@ -14,6 +16,7 @@
     margin: 0 15%;
     justify-items: left;
     align-self: top;
+    min-height: 475px;
 }
 
 .general-info > img {
@@ -34,6 +37,7 @@
     .general-info {
         margin: 0 5% 5em 5%;
         justify-self: center;
+        min-height: 666px;
     }
 
     .general-info > img {
@@ -50,6 +54,12 @@
     margin: 0 5% 5em 5%;
     width: 50ch;
     align-self: center;
+    /* opacity: 0;
+    transition: opacity 0.3s ease-in; */
+}
+
+.loaded {
+    opacity: 1;
 }
 
 .comic-info button {
@@ -73,6 +83,11 @@
 
 .description {
     font-size: 17px;
+}
+
+.description img {
+    max-width: 100%;
+    height: auto;
 }
 
 .character-container, .creator-container {

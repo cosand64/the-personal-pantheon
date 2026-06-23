@@ -26,7 +26,7 @@ export function characterTemplate(info) {
 
 export function characterInfoTemplate(info) {
     return `<div class='image-container'>
-        <img src='${info.image.small_url}' alt='Image of ${info.name}'>
+        <img src='${info.image.small_url}' alt='Image of ${info.name}' width="300" height="400">
     </div>
     <div class='character-description'>
         <h1>${info.name}</h1>
@@ -42,7 +42,7 @@ export function powersTemplate(powers) {
 
 export function issuesTemplate(info) {
     return `<a href="comic.html?id=${info.id}">
-        <img src="${info.image.small_url}" loading="lazy" alt='Image of ${info.name}'>
+        <img src="${info.image.small_url}" loading="lazy" alt='Image of ${info.name}' width="162" height="250">
     </a>`;
 }
 
@@ -58,7 +58,7 @@ export function issueTemplate(info) {
 
 export function characterCreditTemplate(info) {
     return `<a href="character.html?id=${info.id}">
-        <img src="${info.image.tiny_url}" loading="lazy" alt='Image of ${info.name}'>
+        <img src="${info.image.tiny_url}" loading="lazy" alt='Image of ${info.name}' width='30' height='30'>
         <h3>${nullName(info.name)}</h3>
     </a>`;
 }
