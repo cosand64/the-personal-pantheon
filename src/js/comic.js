@@ -2,6 +2,7 @@ import { getCharacters , getCreators, getSpecificIssue } from "./api.mjs";
 import { characterCreditTemplate , creatorsCreditTemplate , issueTemplate } from "./templates.mjs";
 import { favoriteButton , nullName } from "./character-comic.mjs";
 import { searchRequest } from "./navigation.mjs";
+import '../css/comic.css';
 
 const issueId = new URLSearchParams(window.location.search).get('id');
 const characterCredits = document.querySelector(".character-container");
