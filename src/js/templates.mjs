@@ -2,7 +2,7 @@ import { nullName } from "./character-comic.mjs";
 
 export function featuredTemplate(info) {
     return `<a href='comic.html?id=${info.id}'>
-        <img src='${info.image.screen_large_url}' alt='${info.name} cover' loading="lazy">
+        <img src='${info.image.screen_large_url}' alt='${info.name} cover'>
     </a>
     <span>
         <a href='comic.html?id=${info.id}'>
@@ -22,6 +22,18 @@ export function characterTemplate(info) {
     return `<a href='character.html?id=${info.id}'>
         <img src='${info.image.small_url}' alt='Image of ${info.name}' loading="lazy">
     </a>`;
+}
+
+export function characterInfoTemplate(info) {
+    return `<div class='image-container'>
+        <img src='${info.image.small_url}' alt='Image of ${info.name}'>
+    </div>
+    <div class='character-description'>
+        <h1>${info.name}</h1>
+        <p>${info.deck}</p>
+        <button class="fav-btn">Favorite</button>
+        <div class="saved">Character saved!</div>
+    </div>`
 }
 
 export function powersTemplate(powers) {
@@ -81,9 +93,9 @@ export function searchResultTemplate(info) {
 export function favoriteTemplate(info) {
     return `<article class="result-card" data-id='${info.id}'>
         <a href="${info.type}.html?id=${info.id}">
-            <img src="${info.image}" alt="Image of ${info.name}" loading="lazy" alt='Image of ${info.name}'>
+            <img src="${info.image}" alt="Image of ${info.name}">
             <h3>${info.name}</h3>
-        </a>alt='Image of ${info.name}'
+        </a>
         <button class="remove-btn">Remove</button>
     </article>`
 }

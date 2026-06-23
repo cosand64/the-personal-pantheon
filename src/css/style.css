@@ -6,10 +6,16 @@
 /* --- Main Content Sections --- */
 .featured-section {
     margin-bottom: 30px;
+    display: flex;
+    align-items: center;
 }
 
-.featured-box {
-    width: 100%;
+.featured-section a {
+    max-width: 80%;
+}
+
+.featured-section a > img {
+    max-width: 90%;
 }
 
 .gallery-section {
@@ -22,7 +28,7 @@
     font-weight: normal;
     margin-bottom: 15px;
     font-size: 22px;
-    color: #444;
+    color: white;
 }
 
 /* --- Carousels --- */
@@ -39,7 +45,7 @@
     border: none;
     font-size: 24px;
     cursor: pointer;
-    color: #333;
+    color: white;
     padding: 10px;
     flex-shrink: 0;
 }

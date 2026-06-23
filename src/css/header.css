@@ -62,10 +62,7 @@
 }
 
 #logo {
-    height: 50px;
-    width: 147px;
-    border-radius: 3px;
-    opacity: 0.8;
+    border-radius: 5px;
 }
 
 .nav-right {
@@ -76,7 +73,7 @@
 
 @media screen and (min-width: 700px) {
     #logo {
-        height: 45px;
-        width: 83.5px;
+        /* height: 53px;
+        width: 55px; */
     }
 }

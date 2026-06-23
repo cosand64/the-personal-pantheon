@@ -1,35 +1,45 @@
 import { getSpecificCharacter , getIssues } from "./api.mjs";
-import { powersTemplate , issuesTemplate } from "./templates.mjs";
+import { powersTemplate , issuesTemplate , characterInfoTemplate } from "./templates.mjs";
 import { favoriteButton } from "./character-comic.mjs";
 import { searchRequest } from "./navigation.mjs";
+import '../css/character.css';
 
-const characterId = new URLSearchParams(window.location.search).get('id');
-const generalInfo = document.querySelector(".general-info");
-const powers = document.querySelector(".powers > ul");
-const recentIssues = document.querySelector(".recent-issues");
+
+
+
+
+
 
 async function characterInfo(id) {
-    const characterList = await getSpecificCharacter(id, '&field_list=deck,description,id,image,powers,issue_credits,name');
-    document.querySelector(".image-container > img").setAttribute('src', characterList.image.medium_url);
-    document.querySelector(".character-description > h1").innerHTML = characterList.name;
-    document.querySelector(".character-description > p").innerHTML = characterList.deck;
+    const characterId = new URLSearchParams(window.location.search).get('id');
+    const characterList = await getSpecificCharacter(characterId, '&field_list=deck,description,id,image,powers,issue_credits,name');
+    comicsElement(characterList);
+    characterInfoElement(characterList);
     generalInfoElement(checkHTMLContent(characterList.description));
     powersElement(characterList);
-    comicsElement(characterList);
     favoriteButton(characterList);
 }
 
+function characterInfoElement(data) {
+    const heroBanner = document.querySelector(".hero-banner");
+    heroBanner.innerHTML = "";
+    heroBanner.insertAdjacentHTML("afterbegin", characterInfoTemplate(data))
+}
+
 function generalInfoElement(data) {
+    const generalInfo = document.querySelector(".general-info");
     generalInfo.innerHTML = "";
     generalInfo.insertAdjacentHTML("afterbegin", data);
 }
 
 function powersElement(data) {
+    const powers = document.querySelector(".powers > ul");
     powers.innerHTML = "";
     powers.insertAdjacentHTML("afterbegin", data.powers.map(powersTemplate).join(""));
 }
 
 async function comicsElement(data) {
+    const recentIssues = document.querySelector(".recent-issues");
     const sevenIssues = data.issue_credits.slice(0, 7);
     const issueIds = sevenIssues.map(issue => issue.id).join('|')
     const issuesInfo = await getIssues(`&filter=id:${issueIds}&field_list=id,image`)
@@ -70,8 +80,8 @@ function checkHTMLContent(html) {
 }
 
 function init() {
+    characterInfo();
     searchRequest();
-    characterInfo(characterId);
 }
 
 init();

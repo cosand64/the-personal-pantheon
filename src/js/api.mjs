@@ -6,6 +6,7 @@ async function getJson(url, urlOptions) {
     method: "GET",
     headers: {
         'Content-Type': 'application/json',
+        'Cache-Control': 'max-age=31536000',
     }
   };
   let data = {};

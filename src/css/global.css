@@ -1,11 +1,11 @@
 :root {
     --title-color: black;
     --word-color: black;
-    --bg-color: #c0e6de;
-    --card-color: #9999C3;
-    --header-color: #7b8cde;
-    --footer-color: #BB999C;
-    --extra-color: #E88D67;
+    --bg-color: #B89C5D;
+    --card-color: #0A111F;
+    --header-color: #1A345B;
+    --footer-color: #FFD62B;
+    --extra-color: #0A111F;
 }
 
 * {
@@ -14,7 +14,7 @@
 }
 
 body {
-    background-color: #f0f0f0; ;
+    background-color: #F5E8C9; ;
 }
 
 main {
