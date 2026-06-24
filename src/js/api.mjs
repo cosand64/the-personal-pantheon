@@ -12,9 +12,9 @@ async function getJson(url, urlOptions) {
   let data = {};
   let response = {};
   if (!urlOptions) {
-    response = await fetch(baseURL + url + `/?api_key=${apiKey}&format=json`);
+    response = await fetch(baseURL + url + `/?api_key=${apiKey}&format=json`, options);
   } else {
-    response = await fetch(baseURL + url + `/?api_key=${apiKey}&format=json` + urlOptions);
+    response = await fetch(baseURL + url + `/?api_key=${apiKey}&format=json` + urlOptions, options);
   }
   // check to make sure the reponse was ok.
   if (response.ok) {

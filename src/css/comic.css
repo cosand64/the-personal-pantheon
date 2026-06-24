@@ -14,14 +14,14 @@
 
 .general-info {
     margin: 0 15%;
-    justify-items: left;
-    align-self: top;
     min-height: 475px;
+    text-align: center;
 }
 
 .general-info > img {
     max-width: 300px;
     max-height: 475px;
+    object-fit: contain;
 }
 
 .issue-details > * {
@@ -52,12 +52,9 @@
 
 .comic-info {
     margin: 0 5% 5em 5%;
-    width: 50ch;
+    width: 100%;
+    max-width: 50ch;
     align-self: center;
-}
-
-.loaded {
-    opacity: 1;
 }
 
 .comic-info button {
@@ -118,6 +115,8 @@
 @media screen and (min-width: 910px) {
     .comic-container {
         flex-direction: row;
+        opacity: 0;
+        transition: opacity 0.3s ease-in;
     }
 
     .comic-info {
@@ -128,4 +127,8 @@
     .character-container h3, .creator-container h3{
         font-size: 15px;
     }
+}
+
+.loaded {
+    opacity: 1;
 }

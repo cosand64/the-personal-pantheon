@@ -47,7 +47,7 @@ export function issuesTemplate(info) {
 }
 
 export function issueTemplate(info) {
-    return `<img src='${info.image.small_url}' alt='Image of ${info.name}'>
+    return `<img src='${info.image.small_url}' alt='Image of ${info.name}' fetchpriority=high>
     <section class='issue-details'>
         <h2>Issue Details</h2>
         <div id='name'>Name: ${nullName(info.name)}</div>
