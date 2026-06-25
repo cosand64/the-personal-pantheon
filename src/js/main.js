@@ -21,9 +21,6 @@ async function featuredInfo() {
     featuredContainer.insertAdjacentHTML("afterbegin", featuredTemplate(issueList));
 }
 
-/** 
-    @param {string} wrapperId 
-*/
 function setupCarousel(wrapperId) {
     const wrapper = document.getElementById(wrapperId);
     if (!wrapper) return;
