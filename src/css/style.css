@@ -54,25 +54,41 @@ main > div{
 .carousel-arrow {
     background: none;
     border: none;
-    font-size: 24px;
+    font-size: 32px;
     cursor: pointer;
     color: white;
     padding: 10px;
     flex-shrink: 0;
+    user-select: none;
+    transition: transform 0.2s ease;
+}
+
+.carousel-arrow:hover {
+    transform: scale(1.2);
 }
 
 .carousel-image-wrapper {
     flex-grow: 1;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    gap: 20px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding: 10px 5px;
 }
 
 .carousel-image-wrapper img {
-    max-width: 100%;
+    flex-shrink: 0;
+    max-width: 160px;
     height: auto;
-    max-height: 250px;
-    object-fit: contain;
-    border-radius: 4px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    max-height: 240px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    transition: transform 0.2s ease;
+}
+
+.carousel-image-wrapper {
+    transform: translateY(-5px)
 }

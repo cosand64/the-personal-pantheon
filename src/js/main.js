@@ -21,18 +21,47 @@ async function featuredInfo() {
     featuredContainer.insertAdjacentHTML("afterbegin", featuredTemplate(issueList));
 }
 
-async function init() {
+/** 
+    @param {string} wrapperId 
+*/
+function setupCarousel(wrapperId) {
+    const wrapper = document.getElementById(wrapperId);
+    if (!wrapper) return;
 
+    const container = wrapper.closest('.carousel-container');
+    if (!container) return;
+
+    const prevBtn = container.querySelector('.carousel-arrow.prev');
+    const nextBtn = container.querySelector('.carousel-arrow.next');
+    const scrollAmount = 540; 
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            wrapper.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            wrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+    }
+}
+
+async function init() {
     await Promise.all([
         featuredInfo(),
         comicInfo(),
         characterInfo()
-    ])
+    ]);
+
+    setupCarousel('comic');
+    setupCarousel('character');
 
     searchRequest();
 
     // Once everything is loaded, reveal it.
-    document.querySelector("main > div").classList.add("loaded")
+    document.querySelector("main > div").classList.add("loaded");
 }
 
 init();
