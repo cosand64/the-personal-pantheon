@@ -1,5 +1,4 @@
-// const baseURL = "/comicvine/"\
-const baseURL = 'https://comicvine.gamespot.com/api/'
+const baseURL = "/comicvine/"
 const apiKey = import.meta.env.VITE_COMICVINE_API_KEY;
 
 async function getJson(url, urlOptions) {
