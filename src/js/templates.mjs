@@ -2,7 +2,7 @@ import { nullName } from "./character-comic.mjs";
 
 export function featuredTemplate(info) {
     return `<a href='comic.html?id=${info.id}'>
-        <img src='${info.image.screen_large_url}' alt='${info.name} cover'>
+        <img src='${info.image.screen_large_url}' alt='${nullName(info.name)} cover'>
     </a>
     <span>
         <a href='comic.html?id=${info.id}'>
@@ -14,22 +14,22 @@ export function featuredTemplate(info) {
 
 export function comicTemplate(info) {
     return `<a href='comic.html?id=${info.id}'>
-        <img src='${info.image.small_url}' alt='${info.name} cover' loading="lazy">
+        <img src='${info.image.small_url}' alt='${nullName(info.name)} cover' loading="lazy">
     </a>`;
 }
 
 export function characterTemplate(info) {
     return `<a href='character.html?id=${info.id}'>
-        <img src='${info.image.small_url}' alt='Image of ${info.name}' loading="lazy">
+        <img src='${info.image.small_url}' alt='Image of ${nullName(info.name)}' loading="lazy">
     </a>`;
 }
 
 export function characterInfoTemplate(info) {
     return `<div class='image-container'>
-        <img src='${info.image.small_url}' alt='Image of ${info.name}' width="300" height="400">
+        <img src='${info.image.small_url}' alt='Image of ${nullName(info.name)}' width="300" height="400">
     </div>
     <div class='character-description'>
-        <h1>${info.name}</h1>
+        <h1>${nullName(info.name)}</h1>
         <p>${info.deck}</p>
         <button class="fav-btn">Favorite</button>
         <div class="saved">Character saved!</div>
@@ -42,12 +42,12 @@ export function powersTemplate(powers) {
 
 export function issuesTemplate(info) {
     return `<a href="comic.html?id=${info.id}">
-        <img src="${info.image.small_url}" loading="lazy" alt='Image of ${info.name}' width="162" height="250">
+        <img src="${info.image.small_url}" loading="lazy" alt='Image of ${nullName(info.name)}' width="162" height="250">
     </a>`;
 }
 
 export function issueTemplate(info) {
-    return `<img src='${info.image.small_url}' alt='Image of ${info.name}' fetchpriority=high>
+    return `<img src='${info.image.small_url}' alt='Image of ${nullName(info.name)}' fetchpriority=high>
     <section class='issue-details'>
         <h2>Issue Details</h2>
         <div id='name'>Name: ${nullName(info.name)}</div>
@@ -58,14 +58,14 @@ export function issueTemplate(info) {
 
 export function characterCreditTemplate(info) {
     return `<a href="character.html?id=${info.id}">
-        <img src="${info.image.tiny_url}" loading="lazy" alt='Image of ${info.name}' width='30' height='30'>
+        <img src="${info.image.tiny_url}" loading="lazy" alt='Image of ${nullName(info.name)}' width='30' height='30'>
         <h3>${nullName(info.name)}</h3>
     </a>`;
 }
 
 export function creatorsCreditTemplate(info) {
     return `<span>
-        <img src="${info.image.tiny_url}" loading="lazy" alt='Image of ${info.name}'>
+        <img src="${info.image.tiny_url}" loading="lazy" alt='Image of ${nullName(info.name)}'>
         <h3>${nullName(info.name)}</h3>
     </span>`;
 }
@@ -84,7 +84,7 @@ export function searchResultTemplate(info) {
 
     return `<span class="result-card" data-type="${dataType}" data-id="${info.id}">
         <a href="${pageURL}">
-            <img src="${info.image.small_url}" loading="lazy" alt='Image of ${info.name}'>
+            <img src="${info.image.small_url}" loading="lazy" alt='Image of ${nullName(info.name)}'>
             <h2>${nullName(info.name)} (${dataType})</h2>
         </a>
     </span>`;
@@ -93,8 +93,8 @@ export function searchResultTemplate(info) {
 export function favoriteTemplate(info) {
     return `<article class="result-card" data-id='${info.id}'>
         <a href="${info.type}.html?id=${info.id}">
-            <img src="${info.image}" alt="Image of ${info.name}">
-            <h3>${info.name}</h3>
+            <img src="${info.image}" alt="Image of ${nullName(info.name)}">
+            <h3>${nullName(info.name)}</h3>
         </a>
         <button class="remove-btn">Remove</button>
     </article>`
