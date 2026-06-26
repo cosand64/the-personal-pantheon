@@ -1,0 +1,5 @@
+/*
+  Cross-Origin-Opener-Policy: same-origin
+  X-Frame-Options: DENY
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; img-src 'self' data: https://*.gamespot.com https://comicvine.gamespot.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'none';
