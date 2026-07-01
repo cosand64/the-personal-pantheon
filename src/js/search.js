@@ -19,7 +19,7 @@ function searchRequestForm() {
         if (results) {
             resultsList.insertAdjacentHTML('afterbegin', results.map(searchResultTemplate).join(''));
         } else {
-            resultsList.innerHTML = 'No results found.'
+            resultsList.insertAdjacentHTML("afterbegin", 'No results found.')
         }
     })
 
@@ -58,16 +58,6 @@ async function filterResults(query) {
 
 function init() {
     searchRequestForm();
-
-    resultsList.addEventListener("click", (e) => {
-        e.preventDefault();
-        const targetItem = e.target.closest(".result-card");
-        if (targetItem.getAttribute('data-type') === 'Character') {
-            window.location.href = `character.html?id=${targetItem.getAttribute('data-id')}`
-        } else if (targetItem.getAttribute('data-type') === 'Comic') {
-            window.location.href = `comic.html?id=${targetItem.getAttribute('data-id')}`
-        }
-    });
 }
 
 init();

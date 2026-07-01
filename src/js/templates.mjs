@@ -82,12 +82,12 @@ export function searchResultTemplate(info) {
         dataType = 'Comic'
     }
 
-    return `<span class="result-card" data-type="${dataType}" data-id="${info.id}">
-        <a href="${pageURL}">
+    return `<article class="result-card" data-type="${dataType}" data-id="${info.id}">
+        <a href="${pageURL}?id=${info.id}">
             <img src="${info.image.small_url}" loading="lazy" alt='Image of ${nullName(info.name)}'>
             <h2>${nullName(info.name)} (${dataType})</h2>
         </a>
-    </span>`;
+    </article>`;
 }
 
 export function favoriteTemplate(info) {

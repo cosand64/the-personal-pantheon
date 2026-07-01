@@ -1,11 +1,13 @@
 import { favoriteTemplate } from "./templates.mjs";
 import { searchRequest } from "./navigation.mjs";
 
+const characterFavorites = document.querySelector("#saved-characters");
+const comicFavorites = document.querySelector("#saved-comics");
+
 function displayFavorites() {
-    const characterFavorites = document.querySelector("#saved-characters");
-    const comicFavorites = document.querySelector("#saved-comics");
     let favoritesList = JSON.parse(localStorage.getItem("favorites"));
-    console.log(favoritesList);
+    checkComicsAndCharacters(favoritesList);
+    
     favoritesList.forEach(favorite => {
         if (favorite.type === 'character') {
             characterFavorites.insertAdjacentHTML('afterbegin', favoriteTemplate(favorite));
@@ -23,10 +25,24 @@ function removeItem(favorites) {
         button.addEventListener("click", e => {
             const itemContainer = e.currentTarget.closest('article');
             favorites = favorites.filter(favorite => String(favorite.id) !== itemContainer.getAttribute('data-id'))
+            checkComicsAndCharacters(favorites);
             localStorage.setItem("favorites", JSON.stringify(favorites)); 
             itemContainer.remove();
+
         })
     })
+}
+
+function checkComicsAndCharacters(list) {
+    if (!list.find((favorite) => favorite.type === "character")) {
+        characterFavorites.innerHTML = '';
+        characterFavorites.insertAdjacentHTML("afterbegin", "No saved characters yet");
+    }
+
+    if (!list.find((favorite) => favorite.type === "comic")) {
+        comicFavorites.innerHTML = '';
+        comicFavorites.insertAdjacentHTML("afterbegin", "No saved comics yet");
+    }
 }
 
 function init() {
