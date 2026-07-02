@@ -30,3 +30,8 @@ export function nullName(name) {
         return name;
     }
 }
+
+export function validateInput(input) {
+    const regex = /^[A-Za-z0-9\s':&.,!-]+$/;
+    return regex.test(input);
+}
