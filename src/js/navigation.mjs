@@ -1,5 +1,3 @@
-import { validateInput } from "./character-comic.mjs";
-
 export function searchRequest() {
     document.querySelector(".general-form").addEventListener("submit", e => {
         e.preventDefault();
@@ -14,4 +12,9 @@ export function searchRequest() {
 
 export function errorCard(){
     window.alert("Please input at least 1 character!")
+}
+
+export function validateInput(input) {
+    const regex = /^[A-Za-z0-9\s':&.,!-]+$/;
+    return regex.test(input);
 }

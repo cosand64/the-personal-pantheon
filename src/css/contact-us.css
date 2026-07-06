@@ -1,0 +1,59 @@
+@import "global.css";
+@import "header.css";
+@import "footer.css";
+
+.contact-container {
+    display: flex;
+    background-color: var(--extra-color);
+    color: white;
+    border-radius: 5px;
+}
+
+#contact-left-column {
+    margin: 1em 0 2em 1em;
+    padding: 0 30px;
+}
+
+#contact-left-column h1 {
+    margin-bottom: 1em;
+}
+
+#contact-left-column img {
+    border-radius: 10px;
+    margin-top: 1em;
+}
+
+#contact-right-column > form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 3em 3em 3em;
+}
+
+#contact-right-column > form label {
+    margin: 1em 0;
+}
+
+#submit-btn {
+    margin-top: 3em;
+    width: 5em;
+    align-self: center;
+    background-color: var(--footer-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+#submit-btn:hover {
+    cursor: pointer;
+    color: white;
+    background-color: var(--header-color);
+}
+
+#name, #email, #phone {
+    width: 25em;
+}
+
+#message {
+    width: 27.7em;
+    height: 15em;
+}

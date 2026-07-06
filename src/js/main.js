@@ -1,6 +1,6 @@
 import { getCharacters , getIssues , getSpecificIssue } from "./api.mjs";
 import { featuredTemplate , characterTemplate , comicTemplate } from "./templates.mjs";
-import { searchRequest } from "./navigation.mjs";
+import { searchRequest , validateInput } from "./navigation.mjs";
 
 async function characterInfo() {
     const characters = await getCharacters('&field_list=id,image,name&limit=6');
@@ -16,8 +16,8 @@ async function featuredInfo() {
     const featuredContainer = document.querySelector(".featured-section");
     featuredContainer.innerHTML = "";
 
-    let issueList = await getSpecificIssue('1156300', '&field_list=id,image,name');
-
+    let issueList = await getSpecificIssue('1156300', '&field_list=id,image,name,volume');
+    console.log(issueList);
     featuredContainer.insertAdjacentHTML("afterbegin", featuredTemplate(issueList));
 }
 

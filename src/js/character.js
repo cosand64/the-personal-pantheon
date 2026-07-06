@@ -1,7 +1,7 @@
 import { getSpecificCharacter , getIssues } from "./api.mjs";
 import { powersTemplate , issuesTemplate , characterInfoTemplate } from "./templates.mjs";
 import { favoriteButton } from "./character-comic.mjs";
-import { searchRequest } from "./navigation.mjs";
+import { searchRequest , validateInput } from "./navigation.mjs";
 import '../css/character.css';
 
 async function characterInfo(id) {

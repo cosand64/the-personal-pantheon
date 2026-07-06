@@ -5,7 +5,7 @@
     --card-color: #0A111F;
     --header-color: #1A345B;
     --footer-color: #FFD62B;
-    --extra-color: #0A111F;
+    --extra-color: #0C1321;
 }
 
 * {
@@ -28,7 +28,7 @@ main {
 
 .saved {
     display: none;
-    color: black;
+    color: white;
 }
 
 .show {

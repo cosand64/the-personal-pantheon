@@ -23,15 +23,14 @@ export function favoriteButton(item) {
     })
 }
 
-export function nullName(name) {
-    if (name === null) {
-        return 'N/A';
+export function nullName(info) {
+    if (info.name === null) {
+        try {
+            return info.volume.name;
+        } catch {
+            return 'N/A';
+        }
     } else {
-        return name;
+        return info.name;
     }
-}
-
-export function validateInput(input) {
-    const regex = /^[A-Za-z0-9\s':&.,!-]+$/;
-    return regex.test(input);
 }
