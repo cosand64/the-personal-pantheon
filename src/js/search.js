@@ -1,7 +1,6 @@
 import { getGeneralSearch } from "./api.mjs";
 import { searchResultTemplate } from "./templates.mjs";
-import { validateInput } from "./character-comic.mjs";
-import { errorCard } from "./navigation.mjs";
+import { errorCard , validateInput } from "./navigation.mjs";
 
 const resultsList = document.querySelector(".results-container");
 const pageQuery = new URLSearchParams(window.location.search).get('query');
@@ -21,6 +20,7 @@ function searchRequestForm() {
         const searchQuery = document.querySelector("#general-search").value;
         if (validateInput(searchQuery)) {
             const results = await filterResults(searchQuery);
+            console.log(results);
             if (results) {
                 resultsList.insertAdjacentHTML('afterbegin', results.map(searchResultTemplate).join(''));
             } else {

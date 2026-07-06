@@ -15,18 +15,30 @@ main > div{
 }
 
 .featured-section {
-    margin-bottom: 30px;
+    margin-bottom: 28px;
+    padding: 5px;
     display: flex;
     align-items: center;
+    background-color: var(--card-color);
 }
 
 .featured-section a {
     max-width: 80%;
+    text-decoration: none;
+    color: white;
+}
+
+.featured-section a:hover {
+    color: gray;
 }
 
 .featured-section a > img {
     max-width: 90%;
     object-fit: cover;
+}
+
+.featured-section > span {
+    margin-right: 1em;
 }
 
 .gallery-section {

@@ -6,7 +6,7 @@ export function featuredTemplate(info) {
     </a>
     <span>
         <a href='comic.html?id=${info.id}'>
-            <h2>Featured</h2>
+            <h2>Featured:</h2>
             <h2>${nullName(info)}</h2>
         </a>
     </span>`;
