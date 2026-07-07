@@ -20,9 +20,7 @@
             <div class="search-container">
                 <form class="general-form" action="search.html">
                     <input type="search" placeholder="Search... " id="general-search">
-                    <button type="submit" id="general-search-btn" class="icon-btn">🔍
-                        <!-- <span class="material-symbols-outlined" id="search-icon">search</span> -->
-                    </button>
+                    <button type="submit" id="general-search-btn" class="icon-btn">🔍</button>
                 </form>
                 <a class="icon-btn user-btn" href="favorites.html">&#128100;</a> 
             </div>
@@ -30,6 +28,13 @@
     </header>
 
     <main>
+        <div id="modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true" aria-hidden="true">
+            <section class="modal-content">
+                <span class="close-button" aria-label="Close modal">&times;</span>
+                <h2 id="modal-title">Messaged Sent!</h2>
+                <p id="modal-description">Thank you for your message! Please wait 24 hours for a response from our team</p>
+            </section>
+        </div>
         <div class="contact-container">
             <div id="contact-left-column">
                 <h1>Contact Us</h1>
