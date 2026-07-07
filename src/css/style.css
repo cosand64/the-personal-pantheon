@@ -2,15 +2,16 @@
 @import "global.css";
 @import "header.css";
 @import "footer.css";
+@import "modal.css";
 
 /* --- Main Content Sections --- */
 
-main > div{
+#main-container {
     opacity: 0;
     transition: opacity 0.3s ease-in;
 }
 
-.loaded {
+#main-container.loaded {
     opacity: 1;
 }
 

@@ -1,6 +1,7 @@
 import { getCharacters , getIssues , getSpecificIssue } from "./api.mjs";
 import { featuredTemplate , characterTemplate , comicTemplate } from "./templates.mjs";
 import { searchRequest , validateInput } from "./navigation.mjs";
+import '../css/style.css';
 
 async function characterInfo() {
     const characters = await getCharacters('&field_list=id,image,name&limit=6');
@@ -17,7 +18,6 @@ async function featuredInfo() {
     featuredContainer.innerHTML = "";
 
     let issueList = await getSpecificIssue('1156300', '&field_list=id,image,name,volume');
-    console.log(issueList);
     featuredContainer.insertAdjacentHTML("afterbegin", featuredTemplate(issueList));
 }
 
@@ -58,7 +58,7 @@ async function init() {
     searchRequest();
 
     // Once everything is loaded, reveal it.
-    document.querySelector("main > div").classList.add("loaded");
+    document.querySelector("#main-container").classList.add("loaded");
 }
 
 init();

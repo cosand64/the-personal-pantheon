@@ -1,8 +1,9 @@
 @import "global.css";
 @import "header.css";
 @import "footer.css";
+@import "modal.css";
 
-h2 {
+main > h2, .character-info h2 {
     margin: 1em 0 1em 0;
     border-bottom: 1px solid black;
 }

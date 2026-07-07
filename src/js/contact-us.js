@@ -1,24 +1,14 @@
-import { searchRequest  } from "./navigation.mjs";
+import { searchRequest , displayConfirmationMessage , closeConfirmationMessage } from "./navigation.mjs";
 import '../css/contact-us.css';
 
 const formBtn = document.querySelector("#submit-btn");
-const closeBtn = document.querySelector('.close-button');
+const closeBtn = document.querySelector('#modal .close-button');
 const modal = document.querySelector("#modal")
 const contactForm = document.querySelector("#contact-right-column > form")
 
-function displayConfirmationMessage() {
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden', false);
-}
-
-function closeConfirmationMessage() {
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden', true);
-}
-
 function closeMessageAndResetForm() {
     contactForm.reset();
-    closeConfirmationMessage();
+    closeConfirmationMessage(modal);
 }
 
 function init() {
@@ -26,7 +16,7 @@ function init() {
 
     formBtn.addEventListener('click', e => {
         e.preventDefault();
-        displayConfirmationMessage();
+        displayConfirmationMessage(modal);
     });
 
     closeBtn.addEventListener('click', closeMessageAndResetForm);

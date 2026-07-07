@@ -6,7 +6,6 @@
     <meta name="description" content="Home page with featured comic and carousels for comic and characters">
     <title>Comic Book Database - Home</title>
     <script type='module' src="js/main.js" defer></script>
-    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -30,7 +29,13 @@
     </header>
 
     <main>
-        <div>
+        <div id="search-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true" aria-hidden="true">
+            <section class="modal-content">
+                <span class="close-button" aria-label="Close modal">&times;</span>
+                <h2 id="modal-title">Please enter at least 1 character!</h2>
+            </section>
+        </div>
+        <div id="main-container">
             <section class="featured-section"></section>
             <section class="gallery-section">
                 <h2>Comics</h2>

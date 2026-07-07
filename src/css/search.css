@@ -1,6 +1,7 @@
 @import "global.css";
 @import "header.css";
 @import "footer.css";
+@import "modal.css";
 
 main {
     padding: 10px 15px;

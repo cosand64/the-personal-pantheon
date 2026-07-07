@@ -9,6 +9,7 @@
     height: 100%;
     overflow: auto;
     background-color: rgb(0,0,0,0.4);
+    z-index: 1;
 }
 
 .modal-content {
@@ -31,13 +32,6 @@
     cursor: pointer;
     color: white;
     text-decoration: none;
-}
-
-.modal-content > button {
-    background-color: white;
-    border: 1px solid var(--footer-color);
-    box-shadow: 0 0 1px gray;
-    border-radius: 5px;
 }
 
 .open {
