@@ -8,7 +8,7 @@ const searchFilter = document.querySelector("#search-options")
 document.querySelector("#general-search").value = '';
 
 function searchRequestForm() {
-    if (pageQuery && validateInput(pageQuery)) {
+    if (validateInput(pageQuery)) {
         searchFromOtherPage(pageQuery);
     } else {
         errorCard();
@@ -20,7 +20,6 @@ function searchRequestForm() {
         const searchQuery = document.querySelector("#general-search").value;
         if (validateInput(searchQuery)) {
             const results = await filterResults(searchQuery);
-            console.log(results);
             if (results) {
                 resultsList.insertAdjacentHTML('afterbegin', results.map(searchResultTemplate).join(''));
             } else {
@@ -33,14 +32,19 @@ function searchRequestForm() {
 
     document.querySelector(".general-form").addEventListener("submit", async (e) => {
         e.preventDefault();
-        resultsList.innerHTML = "";
+        
         
         const searchQuery = document.querySelector("#general-search").value;
-        const results = await filterResults(searchQuery);
-        if (results) {
-            resultsList.insertAdjacentHTML('afterbegin', results.map(searchResultTemplate).join(''));
+        if (validateInput(searchQuery)) {
+            resultsList.innerHTML = "";
+            const results = await filterResults(searchQuery);
+            if (results) {
+                resultsList.insertAdjacentHTML('afterbegin', results.map(searchResultTemplate).join(''));
+            } else {
+                resultsList.insertAdjacentHTML("afterbegin", 'No results found.')
+            }
         } else {
-            resultsList.innerHTML = 'No results found.'
+            errorCard();
         }
     })
 }
