@@ -55,12 +55,12 @@
 }
 
 #name, #email, #phone {
-    width: 27.6em;
+    width: 27.6rem;
 }
 
 #message {
-    width: 27.7em;
-    height: 15em;
+    width: 27.7rem;
+    height: 15rem;
 }
 
 @media screen and (min-width: 950px) {
@@ -68,8 +68,8 @@
         flex-direction: row;
     }
 
-    #name, #email, #phone {
-        width: 25em;
+    #name, #email, #phone, #message {
+        width: 25rem;
     }
 
     #contact-left-column {
