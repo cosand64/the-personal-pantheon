@@ -15,7 +15,8 @@ export default defineConfig({
         search: resolve(__dirname, "src/search.html"),
         favorites: resolve(__dirname, "src/favorites.html"),
         comic: resolve(__dirname, "src/comic.html"),
-        character: resolve(__dirname, "src/character.html")
+        character: resolve(__dirname, "src/character.html"),
+        contact: resolve(__dirname, "src/contact-us.html")
       }
     }
   },
