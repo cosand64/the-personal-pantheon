@@ -1,3 +1,5 @@
+// This function adds the character or comic that has its favorite button pressed to the localStorage of the user
+// and displays a confirmation message to the user.
 export function favoriteButton(item) {
     const favBtn = document.querySelector(".fav-btn");
     
@@ -23,6 +25,7 @@ export function favoriteButton(item) {
     })
 }
 
+// If the name attribute is null, return the volumne name or 'N/A'. If not, return the name attribute
 export function nullName(info) {
     if (info.name === null) {
         try {

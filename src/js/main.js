@@ -3,16 +3,19 @@ import { featuredTemplate , characterTemplate , comicTemplate } from "./template
 import { searchRequest , validateInput } from "./navigation.mjs";
 import '../css/style.css';
 
+// Make an api for the first 6 characters in the api and insert them into the character carousel
 async function characterInfo() {
     const characters = await getCharacters('&field_list=id,image,name&limit=6');
     document.querySelector('#character').insertAdjacentHTML('afterbegin', characters.map(characterTemplate).join(''));
 }
 
+// Make an api for the first 6 comic in the api and insert them into the comic carousel
 async function comicInfo() {
     const comics = await getIssues('&field_list=id,image,name&limit=6');
     document.querySelector('#comic').insertAdjacentHTML('afterbegin', comics.map(comicTemplate).join(''));
 }
 
+// Make an api for a comic in the api and insert it into the feature element
 async function featuredInfo() {
     const featuredContainer = document.querySelector(".featured-section");
     featuredContainer.innerHTML = "";
@@ -21,6 +24,7 @@ async function featuredInfo() {
     featuredContainer.insertAdjacentHTML("afterbegin", featuredTemplate(issueList));
 }
 
+// This function sets up the carousels and enables their functionality
 function setupCarousel(wrapperId) {
     const wrapper = document.getElementById(wrapperId);
     if (!wrapper) return;
@@ -45,6 +49,7 @@ function setupCarousel(wrapperId) {
     }
 }
 
+// wait for all the api calls to be made, then display all the info
 async function init() {
     await Promise.all([
         featuredInfo(),

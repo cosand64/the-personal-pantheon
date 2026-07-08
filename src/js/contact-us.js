@@ -6,26 +6,32 @@ const closeBtn = document.querySelector("#modal .close-button");
 const modal = document.querySelector("#modal");
 const contactForm = document.querySelector("#contact-right-column > form");
 
+// When the form modal is closed, reset the contact form as well
 function closeMessageAndResetForm() {
   contactForm.reset();
   closeConfirmationMessage(modal);
 }
 
+// Validate the inputted email to verify it is the correct format
 function validateEmail(input) {
   const regex = /^[A-Za-z0-9_.@%()+=?/#:;-]{3,}@[A-Za-z0-9.-]{2,}\.[A-Za-z]{2,}$/;
   return regex.test(input);
 }
 
+// Validate the inputted phone to verify it is the correct format
 function validatePhone(input) {
   const regex = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
   return regex.test(input);
 }
 
+// Validate the inputted message to verify it is the correct format
 function validateMessage(input) {
   const regex = /^[A-Za-z0-9\s.,!?'"-]{2,}$/;
   return regex.test(input);
 }
 
+// If any of the inputted information is not valid, input error messages that explain what is wrong to the form modal
+// then display the form modal for the user to see
 function displayErrors(info) {
   const nameValue = document.querySelector("#name").value.trim();
   const emailValue = document.querySelector("#email").value.trim();
@@ -48,9 +54,13 @@ function displayErrors(info) {
   return info;
 }
 
+
 function init() {
   searchRequest();
 
+  // When the form is submitted, check if there are any errors or not.
+  // If not, display the form modal. If there are, display an error message
+  // in the modal with all the issues the form input has.
   formBtn.addEventListener("click", (e) => {
     e.preventDefault();
     const missingInfo = [];
@@ -66,8 +76,10 @@ function init() {
 
   });
 
+  // If the close button is pressed, hide the search bar modal
   closeBtn.addEventListener("click", closeMessageAndResetForm);
 
+  // If the escape button is pressed or is the user clicks on the modal, hide the modal
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       closeMessageAndResetForm();

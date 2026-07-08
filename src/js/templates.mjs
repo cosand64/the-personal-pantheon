@@ -1,5 +1,8 @@
 import { nullName } from "./character-comic.mjs";
 
+// This module has all the templates used for displaying the information on the main.html, search.html,
+// character.html, comic.html, and favorites.html
+
 export function featuredTemplate(info) {
     return `<a href='comic.html?id=${info.id}'>
         <img src='${info.image.screen_large_url}' alt='${nullName(info)} cover'>

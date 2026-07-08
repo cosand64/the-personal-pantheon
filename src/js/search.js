@@ -7,6 +7,8 @@ const pageQuery = new URLSearchParams(window.location.search).get('query');
 const searchFilter = document.querySelector("#search-options")
 document.querySelector("#general-search").value = '';
 
+// Check if the url query is valid. if not, display the modal with an error message. 
+// If not, call the searchFromOtherPage() function.
 function searchRequestForm() {
     if (validateInput(pageQuery)) {
         searchFromOtherPage(pageQuery);
@@ -14,6 +16,7 @@ function searchRequestForm() {
         errorCard();
     }
 
+    // If the select list is changed at all, change the displayed results to show what is being filtered
     searchFilter.addEventListener('change', async () => {
         resultsList.innerHTML = "";
 
@@ -30,10 +33,10 @@ function searchRequestForm() {
         }
     })
 
+    // If there is a value inputted to the search bar, check it and make an api call to get the requested info
     document.querySelector(".general-form").addEventListener("submit", async (e) => {
         e.preventDefault();
-        
-        
+
         const searchQuery = document.querySelector("#general-search").value;
         if (validateInput(searchQuery)) {
             resultsList.innerHTML = "";
@@ -49,6 +52,7 @@ function searchRequestForm() {
     })
 }
 
+// If there is a query value in the url, search for the info, then display it on the search page.
 async function searchFromOtherPage(keyword) {
     const searchResults = await getGeneralSearch(`&query=${keyword.toString()}&resources=character,issue`);
     if (searchResults) {
@@ -58,6 +62,7 @@ async function searchFromOtherPage(keyword) {
     }
 }
 
+// If the search filter has changed, change the type of api call that is made to display the correct info
 async function filterResults(query) {
     if (searchFilter.value === 'Character') {
         return await getGeneralSearch(`&query=${query}&resources=character`);

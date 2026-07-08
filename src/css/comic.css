@@ -23,6 +23,13 @@
     max-width: 300px;
     max-height: 475px;
     object-fit: contain;
+    border: 8px solid var(--extra-color);
+}
+
+.issue-details {
+    border: 5px solid var(--extra-color);
+    background-color: var(--header-color);
+    color: white;
 }
 
 .issue-details > * {

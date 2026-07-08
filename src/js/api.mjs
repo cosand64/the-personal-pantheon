@@ -1,6 +1,8 @@
 const baseURL = "/comicvine/"
 const apiKey = import.meta.env.VITE_COMICVINE_API_KEY;
 
+// The base to any api call.
+// Check to see if there are any provided URL options and make a api call based on the result
 async function getJson(url, urlOptions) {
   const options = {
     method: "GET",
@@ -22,6 +24,8 @@ async function getJson(url, urlOptions) {
   } else throw new Error("response not ok");
   return data;
 }
+
+// The following functions pass the correct url and url options to return the requested infomation, whether in general or for specifc items
 
 export async function getGeneralSearch(urlOptions){
     const searchResults = await getJson(`search`, urlOptions);
