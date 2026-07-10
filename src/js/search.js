@@ -4,7 +4,8 @@ import { errorCard , validateInput, menuToggle } from "./navigation.mjs";
 
 const resultsList = document.querySelector(".results-container");
 const pageQuery = new URLSearchParams(window.location.search).get('query');
-const searchFilter = document.querySelector("#search-options")
+const searchFilter = document.querySelector("#search-options");
+const pageLoader = document.querySelector("#page-loader");
 document.querySelector("#general-search").value = '';
 
 // Check if the url query is valid. if not, display the modal with an error message. 
@@ -12,9 +13,6 @@ document.querySelector("#general-search").value = '';
 function searchRequestForm() {
     if (validateInput(pageQuery)) {
         searchFromOtherPage(pageQuery);
-    } else {
-        pageLoader?.classList.add("hide");
-        errorCard();
     }
 
     // If the select list is changed at all, change the displayed results to show what is being filtered

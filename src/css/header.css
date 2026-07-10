@@ -115,10 +115,3 @@
     height: 90px;
     width: 90px;
 }
-
-@media screen and (min-width: 700px) {
-    #logo {
-        height: 53px;
-        width: 55px;
-    }
-}

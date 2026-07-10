@@ -99,7 +99,7 @@ h1 {
 .result-card img {
     height: 350px;
     width: 350px;
-    border: 5px solid #e88d67;
+    border: 5px solid var(--header-color);
 }
 
 @media screen and (min-width: 830px) {
