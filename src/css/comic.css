@@ -140,3 +140,32 @@
 .loaded {
     opacity: 1;
 }
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+    100% { transform: scale(1); }
+}
+
+.fav-btn.animate {
+    animation: pop 1s ease-in-out;
+}
+
+.fav-btn.favorited {
+    background-color: lightblue; 
+    color: var(--word-color); 
+}
+
+.saved {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.saved.show {
+    opacity: 1;
+    max-height: 40px;
+}

@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Home page with featured comic and carousels for comic and characters">
-    <title>Comic Book Database - Home</title>
-  <script type="module" crossorigin src="/assets/main-DNuMIOXl.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/templates-Dlzu--QL.js">
+    <title>Comic Book Database - Home</title>
+  <script type="module" crossorigin src="/assets/main-XIFj1uG7.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/navigation-C58D00zA.js">
   <link rel="modulepreload" crossorigin href="/assets/api-DgqA5y54.js">
-  <link rel="modulepreload" crossorigin href="/assets/navigation-CUTJKKCg.js">
-  <link rel="stylesheet" crossorigin href="/assets/main-C9EesO7R.css">
+  <link rel="modulepreload" crossorigin href="/assets/templates-DDZ745E6.js">
+  <link rel="stylesheet" crossorigin href="/assets/main-CBRssAg_.css">
 </head>
 <body>
 
@@ -33,7 +33,13 @@
     </header>
 
     <main>
-        <div>
+        <div id="search-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true" aria-hidden="true">
+            <section class="modal-content">
+                <span class="close-button" aria-label="Close modal">&times;</span>
+                <h2 id="modal-title">Please enter at least 1 character!</h2>
+            </section>
+        </div>
+        <div id="main-container">
             <section class="featured-section"></section>
             <section class="gallery-section">
                 <h2>Comics</h2>
@@ -56,10 +62,10 @@
 
     <footer class="site-footer">
         <div class="footer-left">
-            <img src="/assets/personal_pantheon_logo_transparent-C52sYTOb.png" alt="Image of transparent logo">
+            <img src="/assets/personal_pantheon_logo_transparent-C52sYTOb.png" alt="Image of transparent logo" width="92" height="90">
         </div>
         <div class="footer-right">
-            <p>contact us</p>
+            <a href="contact-us.html">Contact Us</a>
             <p>emalexample@emailexample.com</p>
         </div>
     </footer>
