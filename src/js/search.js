@@ -13,22 +13,26 @@ function searchRequestForm() {
     if (validateInput(pageQuery)) {
         searchFromOtherPage(pageQuery);
     } else {
+        pageLoader?.classList.add("hide");
         errorCard();
     }
 
     // If the select list is changed at all, change the displayed results to show what is being filtered
     searchFilter.addEventListener('change', async () => {
         resultsList.innerHTML = "";
+        pageLoader?.classList.remove("hide");
 
         const searchQuery = document.querySelector("#general-search").value;
         if (validateInput(searchQuery)) {
             const results = await filterResults(searchQuery);
+            pageLoader?.classList.add("hide");
             if (results) {
                 resultsList.insertAdjacentHTML('afterbegin', results.map(searchResultTemplate).join(''));
             } else {
                 resultsList.insertAdjacentHTML("afterbegin", 'No results found.')
             }
         } else {
+            ageLoader?.classList.add("hide");
             errorCard();
         }
     })
@@ -40,13 +44,17 @@ function searchRequestForm() {
         const searchQuery = document.querySelector("#general-search").value;
         if (validateInput(searchQuery)) {
             resultsList.innerHTML = "";
+            pageLoader?.classList.remove("hide");
+
             const results = await filterResults(searchQuery);
+            pageLoader?.classList.add("hide");
             if (results) {
                 resultsList.insertAdjacentHTML('afterbegin', results.map(searchResultTemplate).join(''));
             } else {
                 resultsList.insertAdjacentHTML("afterbegin", 'No results found.')
             }
         } else {
+            pageLoader?.classList.add("hide");
             errorCard();
         }
     })
@@ -55,6 +63,7 @@ function searchRequestForm() {
 // If there is a query value in the url, search for the info, then display it on the search page.
 async function searchFromOtherPage(keyword) {
     const searchResults = await getGeneralSearch(`&query=${keyword.toString()}&resources=character,issue`);
+    pageLoader?.classList.add("hide");
     if (searchResults) {
         resultsList.insertAdjacentHTML('afterbegin', searchResults.map(searchResultTemplate).join(''));
     } else {

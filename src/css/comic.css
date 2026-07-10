@@ -2,6 +2,7 @@
 @import "header.css";
 @import "footer.css";
 @import "modal.css";
+@import "loader.css";
 
 .comic-container {
     display: flex;

@@ -24,6 +24,7 @@ main {
     padding: 20px 15px;
     margin: 0 auto;
     min-height: 76vh;
+    position: relative;
 }
 
 .saved {

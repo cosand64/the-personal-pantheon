@@ -64,6 +64,7 @@ async function init() {
 
     // Once everything is loaded, reveal it.
     document.querySelector("#main-container").classList.add("loaded");
+    document.querySelector("#page-loader")?.classList.add("hide");
 }
 
 init();

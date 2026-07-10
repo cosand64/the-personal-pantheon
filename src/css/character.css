@@ -2,6 +2,7 @@
 @import "header.css";
 @import "footer.css";
 @import "modal.css";
+@import "loader.css";
 
 main > h2, .character-info h2 {
     margin: 1em 0 1em 0;

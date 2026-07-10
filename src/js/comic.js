@@ -24,6 +24,7 @@ async function issueInfo(id) {
 
     // Reveal everything once it is loaded
     document.querySelector(".comic-container").classList.add("loaded");
+    document.querySelector("#page-loader")?.classList.add("hide");
 }
 
 // Get which characters are in the comic and return them

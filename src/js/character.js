@@ -23,6 +23,7 @@ async function characterInfo(id) {
     document.querySelector(".hero-banner").classList.add("loaded");
     document.querySelector(".character-info").classList.add("loaded");
     document.querySelector(".recent-issues").classList.add("loaded");
+    document.querySelector("#page-loader")?.classList.add("hide");
 }
 
 // This function clears any info in the hero banner and displays the new information from the api call
