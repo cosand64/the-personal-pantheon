@@ -62,12 +62,6 @@
     background: transparent;
 }
 
-#logo {
-    border-radius: 5px;
-    height: 90px;
-    width: 90px;
-}
-
 .nav-right {
     flex-grow: 1;
     display: flex;
@@ -114,6 +108,12 @@
 .mobile-menu a:hover {
     background-color: lightblue;
     color: var(--word-color);
+}
+
+#logo {
+    border-radius: 5px;
+    height: 90px;
+    width: 90px;
 }
 
 @media screen and (min-width: 700px) {

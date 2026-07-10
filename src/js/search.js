@@ -32,7 +32,7 @@ function searchRequestForm() {
                 resultsList.insertAdjacentHTML("afterbegin", 'No results found.')
             }
         } else {
-            ageLoader?.classList.add("hide");
+            pageLoader?.classList.add("hide");
             errorCard();
         }
     })
