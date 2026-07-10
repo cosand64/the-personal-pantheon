@@ -56,3 +56,41 @@ export function closeConfirmationMessage(modal) {
     modal.setAttribute('aria-hidden', true);
     
 }
+
+export function menuToggle() {
+    const menuBtn = document.querySelector("#menu-toggle");
+    const menu = document.querySelector("#mobile-menu");
+
+    if (!menuBtn || !menu) return;
+
+    function close() {
+        menu.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menu.setAttribute("aria-hidden", "true");
+    }
+
+    function open() {
+        menu.classList.add("open");
+        menuBtn.setAttribute("aria-expanded", "true");
+        menu.setAttribute("aria-hidden", "false");
+    }
+
+    menuBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        menu.classList.contains("open") ? close() : open();
+    });
+
+    // Close if clicking anywhere outside the menu/button
+    window.addEventListener("click", (e) => {
+        if (!menu.contains(e.target) && e.target !== menuBtn) {
+            close();
+        }
+    });
+
+    // Close on Escape
+    window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            close();
+        }
+    });
+}

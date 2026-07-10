@@ -1,4 +1,4 @@
-import { searchRequest , displayConfirmationMessage , closeConfirmationMessage , validateInput } from "./navigation.mjs";
+import { searchRequest , displayConfirmationMessage , closeConfirmationMessage , validateInput, menuToggle } from "./navigation.mjs";
 import "../css/contact-us.css";
 
 const formBtn = document.querySelector("#submit-btn");
@@ -73,6 +73,7 @@ function init() {
         document.querySelector("#modal .modal-content #modal-description").innerHTML = errorMessage;
         displayConfirmationMessage(modal);
     }
+    menuToggle();
 
   });
 

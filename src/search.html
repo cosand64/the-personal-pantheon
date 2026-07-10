@@ -11,10 +11,16 @@
 <body>
     <header class="top-nav">
         <div class="nav-left">
-            <button class="icon-btn">&#9776;</button> 
+            <button class="icon-btn" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">&#9776;</button> 
             <a class="home-btn" href="index.html" aria-label="Go back to the home page">
                 <img id="logo" src="images/personal-pantheon-logo.png" alt="Image of The Personal Pantheon Logo" width="90" height="90">
-            </a> 
+            </a>
+            <nav id="mobile-menu" class="mobile-menu" aria-hidden="true">
+                <a href="index.html">Home</a>
+                <a href="search.html">Search</a>
+                <a href="favorites.html">Favorites</a>
+                <a href="contact-us.html">Contact Us</a>
+            </nav> 
         </div>
     </header>
 

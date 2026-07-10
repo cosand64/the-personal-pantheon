@@ -1,6 +1,6 @@
 import { getCharacters , getIssues , getSpecificIssue } from "./api.mjs";
 import { featuredTemplate , characterTemplate , comicTemplate } from "./templates.mjs";
-import { searchRequest , validateInput } from "./navigation.mjs";
+import { menuToggle, searchRequest , validateInput } from "./navigation.mjs";
 import '../css/style.css';
 
 // Make an api for the first 6 characters in the api and insert them into the character carousel
@@ -61,6 +61,7 @@ async function init() {
     setupCarousel('character');
 
     searchRequest();
+    menuToggle();
 
     // Once everything is loaded, reveal it.
     document.querySelector("#main-container").classList.add("loaded");

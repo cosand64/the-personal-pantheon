@@ -1,7 +1,7 @@
 import { getSpecificCharacter , getIssues } from "./api.mjs";
 import { powersTemplate , issuesTemplate , characterInfoTemplate } from "./templates.mjs";
 import { favoriteButton } from "./character-comic.mjs";
-import { searchRequest , validateInput } from "./navigation.mjs";
+import { menuToggle, searchRequest , validateInput } from "./navigation.mjs";
 import '../css/character.css';
 
 // This function makes the api call for the id that is in the url query. It waits for 
@@ -101,6 +101,7 @@ function checkHTMLContent(html) {
 function init() {
     characterInfo();
     searchRequest();
+    menuToggle();
 }
 
 init();

@@ -1,7 +1,7 @@
 import { getCharacters , getCreators, getSpecificIssue } from "./api.mjs";
 import { characterCreditTemplate , creatorsCreditTemplate , issueTemplate } from "./templates.mjs";
 import { favoriteButton } from "./character-comic.mjs";
-import { searchRequest , validateInput } from "./navigation.mjs";
+import { searchRequest , validateInput, menuToggle } from "./navigation.mjs";
 import '../css/comic.css';
 
 const issueId = new URLSearchParams(window.location.search).get('id');
@@ -46,6 +46,7 @@ async function creatorCreditElement(data) {
 function init() {
     issueInfo(issueId);
     searchRequest();
+    menuToggle();
 }
 
 init();

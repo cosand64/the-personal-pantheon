@@ -1,5 +1,5 @@
 import { favoriteTemplate } from "./templates.mjs";
-import { searchRequest , validateInput } from "./navigation.mjs";
+import { searchRequest , validateInput, menuToggle } from "./navigation.mjs";
 
 const characterFavorites = document.querySelector("#saved-characters");
 const comicFavorites = document.querySelector("#saved-comics");
@@ -55,6 +55,7 @@ function checkComicsAndCharacters(list) {
 function init() {
     displayFavorites();
     searchRequest();
+    menuToggle();
 }
 
 init();
