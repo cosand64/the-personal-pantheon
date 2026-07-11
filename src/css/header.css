@@ -66,6 +66,15 @@
     flex-grow: 1;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    gap: 15px;
+}
+
+#logo {
+    border-radius: 5px;
+    height: 90px;
+    width: 90px;
 }
 
 .mobile-menu {
@@ -110,8 +119,27 @@
     color: var(--word-color);
 }
 
-#logo {
-    border-radius: 5px;
-    height: 90px;
-    width: 90px;
+@media screen and (min-width: 701px) {
+    
+    .mobile-menu {
+        position: static;             
+        display: flex;
+        flex-direction: row;          
+        background-color: transparent;
+        border: none;                 
+        box-shadow: none;             
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+
+    .mobile-menu a {
+        width: auto;
+        border-bottom: none;
+        padding: 8px 16px;
+    }
+
+    .nav-left .icon-btn { 
+        display: none; 
+    }
 }
