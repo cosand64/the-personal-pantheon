@@ -119,7 +119,7 @@
     color: var(--word-color);
 }
 
-@media screen and (min-width: 701px) {
+@media screen and (min-width: 700px) {
     
     .mobile-menu {
         position: static;             
