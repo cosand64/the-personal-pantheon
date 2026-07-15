@@ -43,10 +43,19 @@ async function creatorCreditElement(data) {
     creatorCredits.insertAdjacentHTML('afterbegin', creatorInfo.map(creatorsCreditTemplate).join(''));
 }
 
-function init() {
-    issueInfo(issueId);
+async function init() {
     searchRequest();
     menuToggle();
+    try {
+        await issueInfo(issueId);
+    } catch (err) {
+        console.error(err);
+
+        document.querySelector(".comic-container").classList.add("loaded");
+        document.querySelector("#page-loader")?.classList.add("hide");
+
+        document.querySelector(".comic-container").insertAdjacentHTML("afterbegin", "<div aria-live='polite'>Failed to load data</div>")
+    }
 }
 
 init();

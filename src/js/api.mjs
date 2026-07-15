@@ -42,7 +42,7 @@ export async function getIssues(urlOption){
     return issuesResults.results;
 }
 
-export async function getCreators(id, urlOptions){
+export async function getCreators(urlOptions){
     const creatorResults = await getJson(`people`, urlOptions);
     return creatorResults.results;
 }

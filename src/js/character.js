@@ -7,8 +7,7 @@ import '../css/character.css';
 // This function makes the api call for the id that is in the url query. It waits for 
 // all the api calls to be made before it displays the info
 async function characterInfo(id) {
-    const characterId = new URLSearchParams(window.location.search).get('id');
-    const characterList = await getSpecificCharacter(characterId, '&field_list=deck,description,id,image,powers,issue_credits,name');
+    const characterList = await getSpecificCharacter(id, '&field_list=deck,description,id,image,powers,issue_credits,name');
 
     await Promise.all([
         comicsElement(characterList),
@@ -98,10 +97,22 @@ function checkHTMLContent(html) {
     return extractedHTML;
 }
 
-function init() {
-    characterInfo();
+async function init() {
     searchRequest();
     menuToggle();
+    try {
+        const characterId = new URLSearchParams(window.location.search).get('id');
+        await characterInfo(characterId);
+    } catch (err) {
+        console.error(err);
+        
+        // Reveal everything once loaded
+        document.querySelector(".hero-banner").classList.add("loaded");
+        document.querySelector(".character-info").classList.add("loaded");
+        document.querySelector(".recent-issues").classList.add("loaded");
+        document.querySelector("#page-loader")?.classList.add("hide");
+        document.querySelector(".character-info").insertAdjacentHTML("afterbegin", "<div aria-live='polite'>Failed to load data</div>")
+    }
 }
 
 init();

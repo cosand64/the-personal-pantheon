@@ -7,7 +7,7 @@ const comicFavorites = document.querySelector("#saved-comics");
 // Retrieve all the information from the 'favorites' object in localStorage, then display
 // each item on the favorites.html page
 function displayFavorites() {
-    let favoritesList = JSON.parse(localStorage.getItem("favorites"));
+    let favoritesList = JSON.parse(localStorage.getItem("favorites")) || [];
     checkComicsAndCharacters(favoritesList);
     
     // If the item in the 'favorites' object is a charactor or comic, input it into the correct
@@ -53,9 +53,17 @@ function checkComicsAndCharacters(list) {
 }
 
 function init() {
-    displayFavorites();
     searchRequest();
     menuToggle();
+    try {
+        displayFavorites();
+    } catch (err) {
+        console.error(err);
+
+        document.querySelectorAll(".favorites-section").forEach(section => {
+            section.insertAdjacentHTML("afterbegin", "<div aria-live='polite'>Failed to load data</div>");
+        });    
+    }
 }
 
 init();

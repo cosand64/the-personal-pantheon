@@ -75,8 +75,6 @@ main > h2, .character-info h2 {
 
 .character-info {
     margin: 2em 10% 0 10%;
-    display: grid;
-    grid-template-columns: 70% 5% 25%;
     grid-template-rows: auto;
     opacity: 0;
     transition: opacity 0.3s ease-in;
@@ -163,6 +161,8 @@ main > h2, .character-info h2 {
 @media screen and (min-width: 940px) {
     .character-info {
         margin: 2em 15% 0 15%;
+        display: grid;
+        grid-template-columns: 70% 5% 25%;
         grid-template-rows: auto;
     }
 

@@ -66,6 +66,7 @@ function init() {
     const missingInfo = [];
     const errors = displayErrors(missingInfo);
     if (!errors.length) {
+        // Display a thank you message. For now, the information in the form is not sent anywhere.
         displayConfirmationMessage(modal);
     } else {
         const errorMessage = errors.join("<br><br>");

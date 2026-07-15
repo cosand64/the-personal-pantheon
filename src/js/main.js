@@ -51,21 +51,31 @@ function setupCarousel(wrapperId) {
 
 // wait for all the api calls to be made, then display all the info
 async function init() {
-    await Promise.all([
-        featuredInfo(),
-        comicInfo(),
-        characterInfo()
-    ]);
-
-    setupCarousel('comic');
-    setupCarousel('character');
-
     searchRequest();
     menuToggle();
+    try {
+        await Promise.all([
+            featuredInfo(),
+            comicInfo(),
+            characterInfo()
+        ]);
 
-    // Once everything is loaded, reveal it.
-    document.querySelector("#main-container").classList.add("loaded");
-    document.querySelector("#page-loader")?.classList.add("hide");
+        setupCarousel('comic');
+        setupCarousel('character');
+
+        // Once everything is loaded, reveal it.
+        document.querySelector("#main-container").classList.add("loaded");
+        document.querySelector("#page-loader")?.classList.add("hide");
+
+    } catch (err) {
+        console.error(err);
+
+        // Once everything is loaded, display an error message.
+        document.querySelector("#main-container").classList.add("loaded");
+        document.querySelector("#page-loader")?.classList.add("hide");
+
+        document.querySelector("#main-container").insertAdjacentHTML("afterbegin", "<div aria-live='polite'>Failed to load data</div>")
+    }
 }
 
 init();
