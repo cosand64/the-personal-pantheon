@@ -11,7 +11,7 @@ document.querySelector("#general-search").value = '';
 // Check if the url query is valid. if not, display the modal with an error message. 
 // If not, call the searchFromOtherPage() function.
 function searchRequestForm() {
-    if (validateInput(pageQuery)) {
+    if (validateInput(pageQuery) && pageQuery !== null) {
         searchFromOtherPage(pageQuery);
     }
 

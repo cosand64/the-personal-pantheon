@@ -13,7 +13,11 @@ const creatorCredits = document.querySelector(".creator-container");
 async function issueInfo(id) {
     const issueList = await getSpecificIssue(id, '&field_list=description,id,image,character_credits,person_credits,issue_number,name,volume');
     document.querySelector(".general-info").insertAdjacentHTML('afterbegin', issueTemplate(issueList));
-    document.querySelector(".description").innerHTML = issueList.description;
+    if (!issueList.description) {
+        document.querySelector(".description").insertAdjacentHTML("afterbegin", "<div>No data available</div>");
+    } else {
+        document.querySelector(".description").innerHTML = issueList.description;
+    }
 
     await Promise.all([
         characterCreditElement(issueList.character_credits),
@@ -29,18 +33,26 @@ async function issueInfo(id) {
 
 // Get which characters are in the comic and return them
 async function characterCreditElement(data) {
-    const characterIds = data.map(character => character.id).join('|')
-    const characterInfo = await getCharacters(`&filter=id:${characterIds}&field_list=id,image,name`)
-    characterCredits.innerHTML = "";
-    characterCredits.insertAdjacentHTML('afterbegin', characterInfo.map(characterCreditTemplate).join(''));
+    if (!data || data.length === 0) {
+        characterCredits.insertAdjacentHTML('afterbegin', "<div>No data available</div>");   
+    } else {
+        const characterIds = data.map(character => character.id).join('|')
+        const characterInfo = await getCharacters(`&filter=id:${characterIds}&field_list=id,image,name`)
+        characterCredits.innerHTML = "";
+        characterCredits.insertAdjacentHTML('afterbegin', characterInfo.map(characterCreditTemplate).join(''));
+    }
 }
 
 // Get the creators involved with the comic and return then
 async function creatorCreditElement(data) {
-    const creatorIds = data.map(creator => creator.id).join('|')
-    const creatorInfo = await getCreators(`&filter=id:${creatorIds}&field_list=id,image,name`)
-    creatorCredits.innerHTML = "";
-    creatorCredits.insertAdjacentHTML('afterbegin', creatorInfo.map(creatorsCreditTemplate).join(''));
+    if (!data || data.length === 0) {
+        creatorCredits.insertAdjacentHTML('afterbegin', "<div>No data available</div>");   
+    } else {
+        const creatorIds = data.map(creator => creator.id).join('|')
+        const creatorInfo = await getCreators(`&filter=id:${creatorIds}&field_list=id,image,name`)
+        creatorCredits.innerHTML = "";
+        creatorCredits.insertAdjacentHTML('afterbegin', creatorInfo.map(creatorsCreditTemplate).join(''));
+    }
 }
 
 async function init() {

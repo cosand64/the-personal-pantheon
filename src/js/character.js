@@ -19,9 +19,7 @@ async function characterInfo(id) {
     favoriteButton(characterList);
 
     // Reveal everything once loaded
-    document.querySelector(".hero-banner").classList.add("loaded");
-    document.querySelector(".character-info").classList.add("loaded");
-    document.querySelector(".recent-issues").classList.add("loaded");
+    document.querySelector(".character-container").classList.add("loaded")
     document.querySelector("#page-loader")?.classList.add("hide");
 }
 
@@ -43,22 +41,33 @@ function generalInfoElement(data) {
 function powersElement(data) {
     const powers = document.querySelector(".powers > ul");
     powers.innerHTML = "";
-    powers.insertAdjacentHTML("afterbegin", data.powers.map(powersTemplate).join(""));
+    if (!data.powers || data.powers.length === 0) {
+        powers.insertAdjacentHTML("afterbegin", "<div>No data available</div>");  
+    } else {
+        powers.insertAdjacentHTML("afterbegin", data.powers.map(powersTemplate).join(""));
+    }
 }
 
 // This function clears any info in the recent issues element and displays the new information from the api call
 async function comicsElement(data) {
     const recentIssues = document.querySelector(".recent-issues");
-    const sevenIssues = data.issue_credits.slice(0, 7);
-    const issueIds = sevenIssues.map(issue => issue.id).join('|')
-    const issuesInfo = await getIssues(`&filter=id:${issueIds}&field_list=id,image`)
-    recentIssues.innerHTML = "";
-    recentIssues.insertAdjacentHTML('afterbegin', issuesInfo.map(issuesTemplate).join(''));
+    if (!data.issue_credits || data.issue_credits.length === 0) {
+        recentIssues.insertAdjacentHTML("afterbegin", "<div>No data available</div>");  
+    } else {
+        const sevenIssues = data.issue_credits.slice(0, 7);
+        const issueIds = sevenIssues.map(issue => issue.id).join('|');
+        const issuesInfo = await getIssues(`&filter=id:${issueIds}&field_list=id,image`)
+        recentIssues.innerHTML = "";
+        recentIssues.insertAdjacentHTML('afterbegin', issuesInfo.map(issuesTemplate).join(''));
+    }
 }
 
 // This function takes the info from the description attribute of the character object and returns the 
 // Origin and Creation section information
 function checkHTMLContent(html) {
+    if (!html) {
+        return "<div>No data available</div>";
+    }
     document.querySelector('.general-info').innerHTML = '';
 
     // Use the DOMParser classes to make the html in the description attribute from a string into a DOM Document, 
@@ -107,9 +116,7 @@ async function init() {
         console.error(err);
         
         // Reveal everything once loaded
-        document.querySelector(".hero-banner").classList.add("loaded");
-        document.querySelector(".character-info").classList.add("loaded");
-        document.querySelector(".recent-issues").classList.add("loaded");
+        document.querySelector(".character-container").classList.add("loaded")
         document.querySelector("#page-loader")?.classList.add("hide");
         document.querySelector(".character-info").insertAdjacentHTML("afterbegin", "<div aria-live='polite'>Failed to load data</div>")
     }

@@ -34,12 +34,11 @@ export function favoriteButton(item) {
             
             if (savedMsg) {
                 savedMsg.textContent = isComic ? "Comic removed!" : "Character removed!";
-                // savedMsg.style.color = "var(--extra-color, red)"; 
             }
         } else {
             // FAVORITE LOGIC 
             favoritesList.push({
-                name: item.name, 
+                name: nullName(item), 
                 image: item.image.medium_url, 
                 id: item.id, 
                 type: itemType

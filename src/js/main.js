@@ -5,13 +5,13 @@ import '../css/style.css';
 
 // Make an api for the first 6 characters in the api and insert them into the character carousel
 async function characterInfo() {
-    const characters = await getCharacters('&field_list=id,image,name&limit=6');
+    const characters = await getCharacters('&field_list=id,image,name&limit=8');
     document.querySelector('#character').insertAdjacentHTML('afterbegin', characters.map(characterTemplate).join(''));
 }
 
 // Make an api for the first 6 comic in the api and insert them into the comic carousel
 async function comicInfo() {
-    const comics = await getIssues('&field_list=id,image,name&limit=6');
+    const comics = await getIssues('&field_list=id,image,name&limit=8');
     document.querySelector('#comic').insertAdjacentHTML('afterbegin', comics.map(comicTemplate).join(''));
 }
 

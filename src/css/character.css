@@ -4,9 +4,14 @@
 @import "modal.css";
 @import "loader.css";
 
-main > h2, .character-info h2 {
+.character-container h2 {
     margin: 1em 0 1em 0;
     border-bottom: 1px solid black;
+}
+
+.character-container {
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
 }
 
 
@@ -21,8 +26,6 @@ main > h2, .character-info h2 {
     min-height: 600px;
     margin: 0 -15px;
     color: white;
-    opacity: 0;
-    transition: opacity 0.3s ease-in;
 }
 
 .image-container {
@@ -76,14 +79,11 @@ main > h2, .character-info h2 {
 .character-info {
     margin: 2em 10% 0 10%;
     grid-template-rows: auto;
-    opacity: 0;
-    transition: opacity 0.3s ease-in;
 }
 
 .general-info {
     grid-column: 1/2;
     grid-row: 1/2;
-    
 }
 
 .general-info figure {
@@ -115,8 +115,6 @@ main > h2, .character-info h2 {
     text-align: center;
     justify-self: center;
     min-height: 260px;
-    opacity: 0;
-    transition: opacity 0.3s ease-in;
 }
 
 .recent-issues a {
