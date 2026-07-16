@@ -57,6 +57,7 @@ function displayErrors(info) {
 
 function init() {
   searchRequest();
+  menuToggle();
 
   // When the form is submitted, check if there are any errors or not.
   // If not, display the form modal. If there are, display an error message
@@ -74,7 +75,6 @@ function init() {
         document.querySelector("#modal .modal-content #modal-description").innerHTML = errorMessage;
         displayConfirmationMessage(modal);
     }
-    menuToggle();
 
   });
 
