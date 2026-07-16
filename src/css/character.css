@@ -40,7 +40,7 @@ main > h2, .character-info h2 {
     color: white;
 }
 
-.character-description > button {
+.fav-btn {
     padding: 5px;
     margin: 1em 0 1em 0;
     background-color: var(--header-color);
@@ -48,7 +48,7 @@ main > h2, .character-info h2 {
     font-size: 25px;
 }
 
-.character-description > button:hover {
+.fav-btn:hover {
     cursor: pointer;
     background-color: lightblue;
     color: var(--word-color);
@@ -65,7 +65,7 @@ main > h2, .character-info h2 {
         min-height: 600px;
     }
 
-    .character-description > button {
+    .fav-btn {
         margin: 1em 0 0 0;
     }
 }
@@ -136,21 +136,12 @@ main > h2, .character-info h2 {
 }
 
 .fav-btn.animate {
-    animation: pop 0.3s ease-in-out;
+    animation: pop 0.5s ease-in-out;
 }
 
 .fav-btn.favorited {
     background-color: lightblue; 
     color: var(--word-color); 
-}
-
-.saved {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
-    margin-top: 5px;
-    font-weight: bold;
 }
 
 .saved.show {

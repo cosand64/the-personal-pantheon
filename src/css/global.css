@@ -28,14 +28,20 @@ main {
 }
 
 .saved {
-    display: none;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
+    margin:1.5rem 0 0 1.5rem;
+    padding: 10px;
+    align-content: center;
+    font-weight: bold;
     color: white;
+    background-color: var(--header-color);
 }
 
-.show {
-    display: inline;
-    background-color: var(--header-color);
-    padding: 10px;  
+.favorite-group {
+    display: flex;
 }
 
 .visually-hidden {

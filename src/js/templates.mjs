@@ -34,8 +34,10 @@ export function characterInfoTemplate(info) {
     <div class='character-description'>
         <h1>${nullName(info)}</h1>
         <p>${info.deck}</p>
-        <button class="fav-btn">Favorite</button>
-        <div class="saved">Character saved!</div>
+        <div class="favorite-group">
+            <button class="fav-btn">Favorite</button>
+            <div class="saved">Character saved!</div>
+        </div>
     </div>`
 }
 

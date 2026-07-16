@@ -22,7 +22,6 @@ export function favoriteButton(item) {
     }
     
    favBtn.addEventListener("click", () => {
-        console.log("CLICK HANDLER FIRED");
         favoritesList = localStorage.getItem("favorites") ? JSON.parse(localStorage.getItem("favorites")) : [];
         isFavorited = favoritesList.some(fav => fav.id === item.id && fav.type === itemType);
 
@@ -35,7 +34,7 @@ export function favoriteButton(item) {
             
             if (savedMsg) {
                 savedMsg.textContent = isComic ? "Comic removed!" : "Character removed!";
-                savedMsg.style.color = "var(--extra-color, red)"; 
+                // savedMsg.style.color = "var(--extra-color, red)"; 
             }
         } else {
             // FAVORITE LOGIC 
@@ -51,7 +50,6 @@ export function favoriteButton(item) {
             
             if (savedMsg) {
                 savedMsg.textContent = isComic ? "Comic saved!" : "Character saved!";
-                savedMsg.style.color = "green";
             }
         }
 
