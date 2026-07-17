@@ -20,9 +20,10 @@ h1 {
 .general-form > input {
     height: 30px;
     width: 15em;
+    padding-left: 3px;
     border-radius: 0;
     border: 1px solid black;
-    border-left: none;
+    
 }
 
 @media screen and (min-width: 830px) {
@@ -35,7 +36,6 @@ h1 {
     height: 30px;
     padding: 6px;
     border: 1px solid black;
-    border-right: none;
     background-color: white;
 }
 

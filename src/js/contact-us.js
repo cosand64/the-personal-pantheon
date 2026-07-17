@@ -8,7 +8,6 @@ const contactForm = document.querySelector("#contact-right-column > form");
 
 // When the form modal is closed, reset the contact form as well
 function closeMessageAndResetForm() {
-  contactForm.reset();
   closeConfirmationMessage(modal);
 }
 
@@ -33,24 +32,49 @@ function validateMessage(input) {
 // If any of the inputted information is not valid, input error messages that explain what is wrong to the form modal
 // then display the form modal for the user to see
 function displayErrors(info) {
-  const nameValue = document.querySelector("#name").value.trim();
-  const emailValue = document.querySelector("#email").value.trim();
-  const phoneValue = document.querySelector("#phone").value.trim();
-  const messageValue = document.querySelector("#message").value.trim();
+  // Get all the input fields
+  const nameInput = document.querySelector("#name");
+  const emailInput = document.querySelector("#email");
+  const phoneInput = document.querySelector("#phone");
+  const messageInput = document.querySelector("#message");
+
+  // Get all the values in the input fields
+  const nameValue = nameInput.value.trim();
+  const emailValue = emailInput.value.trim();
+  const phoneValue = phoneInput.value.trim();
+  const messageValue = messageInput.value.trim();
   if (!validateInput(nameValue)) {
     info.push("Please input at least 2 characters in the name field");
+    nameInput.classList.add("error-highlight");
+  } else {
+    nameInput.classList.remove("error-highlight");
   }
+
   if (!validateEmail(emailValue)) {
     info.push("Please input a valid email");
+    emailInput.classList.add("error-highlight");
+  } else {
+    emailInput.classList.remove("error-highlight");
   }
+
   if (phoneValue) {
     if (!validatePhone(phoneValue)) {
       info.push("Please input a valid phone number");
+      phoneInput.classList.add("error-highlight");
+    } else {
+      phoneInput.classList.remove("error-highlight");
     }
+  } else {
+    phoneInput.classList.remove("error-highlight");
   }
+
   if (!validateMessage(messageValue)) {
     info.push("Please input at least 2 characters in the message field");
+    messageInput.classList.add("error-highlight");
+  } else {
+    messageInput.classList.remove("error-highlight");
   }
+
   return info;
 }
 
@@ -68,6 +92,7 @@ function init() {
     const errors = displayErrors(missingInfo);
     if (!errors.length) {
         // Display a thank you message. For now, the information in the form is not sent anywhere.
+        
         displayConfirmationMessage(modal);
     } else {
         const errorMessage = errors.join("<br><br>");

@@ -11,6 +11,8 @@ document.querySelector("#general-search").value = '';
 // Check if the url query is valid. if not, display the modal with an error message. 
 // If not, call the searchFromOtherPage() function.
 function searchRequestForm() {
+    let lastSearchFilter = searchFilter.value;
+
     if (validateInput(pageQuery) && pageQuery !== null) {
         searchFromOtherPage(pageQuery);
     }
@@ -20,17 +22,28 @@ function searchRequestForm() {
         resultsList.innerHTML = "";
         pageLoader?.classList.remove("hide");
 
+        // Get the current select element value in case the user doesn't enter in a valid input in the input element
         const searchQuery = document.querySelector("#general-search").value;
+
+        if (!validateInput(searchQuery)) {
+            // Revert the dropdown back to the last valid selection
+            searchFilter.value = lastSearchFilter;
+            errorCard();
+        }
+
+        lastSearchFilter = searchFilter.value;
+
         if (validateInput(searchQuery)) {
             const results = await filterResults(searchQuery);
             pageLoader?.classList.add("hide");
             if (results) {
                 resultsList.insertAdjacentHTML('afterbegin', results.map(searchResultTemplate).join(''));
             } else {
-                resultsList.insertAdjacentHTML("afterbegin", 'No results found.')
+                resultsList.insertAdjacentHTML("afterbegin", '<div>No results found</div>')
             }
         } else {
             pageLoader?.classList.add("hide");
+            searchFilter.value = lastSearchFilter;
             errorCard();
         }
     })
@@ -39,10 +52,12 @@ function searchRequestForm() {
     document.querySelector(".general-form").addEventListener("submit", async (e) => {
         e.preventDefault();
 
+
         const searchQuery = document.querySelector("#general-search").value;
         if (validateInput(searchQuery)) {
             resultsList.innerHTML = "";
             pageLoader?.classList.remove("hide");
+            let lastSearchFilter = searchFilter.value
 
             const results = await filterResults(searchQuery);
             pageLoader?.classList.add("hide");
@@ -53,6 +68,7 @@ function searchRequestForm() {
             }
         } else {
             pageLoader?.classList.add("hide");
+            searchFilter.value = lastSearchFilter;
             errorCard();
         }
     })
