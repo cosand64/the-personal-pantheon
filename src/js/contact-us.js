@@ -14,6 +14,7 @@ function closeMessageAndResetForm() {
 // Validate the inputted email to verify it is the correct format
 function validateEmail(input) {
   const regex = /^[A-Za-z0-9_.@%()+=?/#:;-]{3,}@[A-Za-z0-9.-]{2,}\.[A-Za-z]{2,}$/;
+  console.log(regex.test(input));
   return regex.test(input);
 }
 
@@ -90,8 +91,11 @@ function init() {
     e.preventDefault();
     const missingInfo = [];
     const errors = displayErrors(missingInfo);
+    console.log(errors);
     if (!errors.length) {
         // Display a thank you message. For now, the information in the form is not sent anywhere.
+        document.querySelector("#modal .modal-content #modal-title").textContent = "Messaged Sent!";
+        document.querySelector("#modal .modal-content #modal-description").textContent = "Thank you for your message! Please wait 24 hours for a response from our team";
         displayConfirmationMessage(modal);
         contactForm.reset();
     } else {
