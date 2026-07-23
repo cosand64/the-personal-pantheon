@@ -75,6 +75,16 @@ export function menuToggle() {
         menu.setAttribute("aria-hidden", "false");
     }
 
+    // Check the size of the window, if it is larger than the mobile width, remove the .open class from the 
+    // drop down menu
+    const mediaQuery = window.matchMedia('(min-width: 790px)')
+
+    mediaQuery.addEventListener('change', e => {
+        if (e.matches) {
+            close();
+        }
+    })
+
     menuBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         menu.classList.contains("open") ? close() : open();
